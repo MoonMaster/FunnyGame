@@ -2,15 +2,13 @@
 {
 	public class Person
 	{
-		private string personName { get; };
-		private bool modeGame { get; };
+		private string PersonName { get; set; }
+		private bool ModeGame { get; set;}
 
 		public Person(string personName, bool modeGame)
 		{
-			this.personName = personName;
-			this.modeGame = modeGame;
+			this.PersonName = personName;
+			this.ModeGame = modeGame;
 		}
-
-
 	}
 }
