@@ -2,8 +2,8 @@
 {
 	public class Person
 	{
-		private string PersonName { get; set; }
-		private bool ModeGame { get; set;}
+		public string PersonName;
+		public bool ModeGame;
 
 		public Person(string personName, bool modeGame)
 		{

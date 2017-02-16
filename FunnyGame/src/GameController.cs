@@ -7,9 +7,12 @@ namespace FunnyGame
 		public void Run()
 		{
 			ViewGame viewerGame = new ViewGame();
-			Person gamerPerson;
 
-			gamerPerson = viewerGame.InitGameInformation();
+			Person gamerPerson = viewerGame.InitGameInformation();
+
+			Console.WriteLine("How iteration?");
+			int counter = Convert.ToInt16(Console.ReadLine());
+			viewerGame.playFunnyGame(gamerPerson, counter);
 		}
 	}
 }
