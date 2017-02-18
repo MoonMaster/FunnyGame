@@ -49,6 +49,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\GameController.cs" />
+    <Compile Include="src\IGameController.cs" />
     <Compile Include="src\Person.cs" />
     <Compile Include="src\PersonController.cs" />
     <Compile Include="src\ViewGame.cs" />

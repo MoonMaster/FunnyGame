@@ -3,12 +3,11 @@
 	public class Person
 	{
 		public string PersonName;
-		public bool ModeGame;
-
-		public Person(string personName, bool modeGame)
+		public int[] ModeGame;
+		public Person(string personName, int[] modeGame)
 		{
-			this.PersonName = personName;
-			this.ModeGame = modeGame;
+			PersonName = personName;
+			ModeGame = modeGame;
 		}
 	}
 }

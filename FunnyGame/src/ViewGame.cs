@@ -13,17 +13,18 @@ namespace FunnyGame
 
 		public Person InitGameInformation()
 		{
-			bool isOddGamerChoice = false;
+			int[] gamerChoice = new int[] {};
 			bool stopChoice = false;
 
-			Console.WriteLine("Welcome to Funny Game. What is your name?");
+			Console.Write("Welcome to Funny Game. What is your name?  ");
 			string gamerName = Console.ReadLine();
 
 			while (true)
 			{
-				showArray(this.optionsGame);
-				Console.WriteLine("Your Choice: ");
+				ShowArray(this.optionsGame);
+				Console.Write("Your Choice: ");
 				var choiceGamer = Console.ReadKey();
+				Console.WriteLine();
 				if (choiceGamer.Key == ConsoleKey.Escape)
 				{
 					break;
@@ -31,11 +32,11 @@ namespace FunnyGame
 				switch (choiceGamer.KeyChar)
 				{
 					case 'o':
-						isOddGamerChoice = true;
+						gamerChoice = new[] {1, 2, 3};
 						stopChoice = true;
 						break;
 					case 'e':
-						isOddGamerChoice = false;
+						gamerChoice = new[] {4, 5, 6, 7, 8, 9};
 						stopChoice = true;
 						break;
 					default: 
@@ -46,11 +47,11 @@ namespace FunnyGame
 				if (stopChoice) 
 					break;
 			}
-			var gamerPerson = new Person(gamerName, isOddGamerChoice);
+			var gamerPerson = new Person(gamerName, gamerChoice);
 			return gamerPerson;
 		}
 
-		private void showArray(string[] arrayStrings)
+		private void ShowArray(string[] arrayStrings)
 		{
 			foreach (string itemOfArr in arrayStrings)
 			{
@@ -60,13 +61,13 @@ namespace FunnyGame
 		}
 
 
-		public void playFunnyGame(Person gamerPerson, int counter)
+		public void PlayFunnyGame(Person gamerPerson, int counter)
 		{
 			Random rnd = new Random();
 			int count = 0;
 			while (count < counter)
 			{
-				Console.WriteLine(gamerPerson.PersonName + " Input your number: ");
+				Console.Write(gamerPerson.PersonName + " Input your number: ");
 				int numberGame = Convert.ToInt16(Console.ReadLine());
 				Console.Write("Computer is number ");
 				int numberComp = rnd.Next(0, 100);
@@ -78,7 +79,7 @@ namespace FunnyGame
 				{
 					Console.WriteLine("Continuo game. DRAW");
 				}
-				else if (Enumerable.Range(1, 3).Contains(firstDigits) && gamerPerson.ModeGame)
+				else if (gamerPerson.ModeGame.Contains(firstDigits))
 				{
 					Console.WriteLine("The gamer " + gamerPerson.PersonName.ToUpper() + " is WIN");
 				}

@@ -2,7 +2,7 @@
 
 namespace FunnyGame
 {
-	public class GameController
+	public class GameController : IGameController
 	{
 		public void Run()
 		{
@@ -10,9 +10,9 @@ namespace FunnyGame
 
 			Person gamerPerson = viewerGame.InitGameInformation();
 
-			Console.WriteLine("How iteration?");
+			Console.Write("How iteration? ");
 			int counter = Convert.ToInt16(Console.ReadLine());
-			viewerGame.playFunnyGame(gamerPerson, counter);
+			viewerGame.PlayFunnyGame(gamerPerson, counter);
 		}
 	}
 }
