@@ -55,7 +55,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="tests\PersonControllerTests.cs" />
-    <Compile Include="ViewGameController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

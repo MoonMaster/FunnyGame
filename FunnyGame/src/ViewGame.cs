@@ -11,95 +11,53 @@ namespace FunnyGame
 			"[e] - second part {4,5,6,7,8,9}"
 		};
 
-		public Person InitGameInformation()
+		public void GetWelcomePage()
 		{
-			int[] gamerChoice = new int[] {};
-			bool stopChoice = false;
-
-			Console.Write("Welcome to Funny Game. What is your name?  ");
-			string gamerName = Console.ReadLine();
-
-			while (true)
-			{
-				ShowArray(this.optionsGame);
-				Console.Write("Your Choice: ");
-				var choiceGamer = Console.ReadKey();
-				Console.WriteLine();
-				if (choiceGamer.Key == ConsoleKey.Escape)
-				{
-					break;
-				}
-				switch (choiceGamer.KeyChar)
-				{
-					case 'o':
-						gamerChoice = new[] {1, 2, 3};
-						stopChoice = true;
-						break;
-					case 'e':
-						gamerChoice = new[] {4, 5, 6, 7, 8, 9};
-						stopChoice = true;
-						break;
-					default: 
-						Console.Write("\n Error!");
-						break;
-				}
-
-				if (stopChoice) 
-					break;
-			}
-			var gamerPerson = new Person(gamerName, gamerChoice);
-			return gamerPerson;
+			Console.WriteLine("Welcome to FunnyGame.");
 		}
 
-		private void ShowArray(string[] arrayStrings)
+		public string GetGamerName()
 		{
-			foreach (string itemOfArr in arrayStrings)
+			Console.WriteLine("What is Your Name?");
+			string gamerName = Console.ReadLine();
+			return gamerName;
+		}
+
+		public string GetChoiceModeGamer()
+		{
+			ShowModeGame();
+			Console.WriteLine("Your Choice?");
+			string resultChoiceGamer = Console.ReadLine();
+			return resultChoiceGamer;
+		}
+
+		private void ShowModeGame()
+		{
+			foreach (var itemOfArr in optionsGame)
 			{
-				Console.WriteLine();
 				Console.WriteLine(itemOfArr);
 			}
 		}
 
+		public int GetNumberGame(Person gamer)
+		{
+			Console.Write(gamer.PersonName + " Input your number: ");
+			return Convert.ToInt16(Console.ReadLine());
+		}
 
-		public void PlayFunnyGame(Person gamerPerson, int counter)
+		public int GetNumberOpponent()
 		{
 			Random rnd = new Random();
-			int count = 0;
-			while (count < counter)
-			{
-				Console.Write(gamerPerson.PersonName + " Input your number: ");
-				int numberGame = Convert.ToInt16(Console.ReadLine());
-				Console.Write("Computer is number ");
-				int numberComp = rnd.Next(0, 100);
-				Console.WriteLine(numberComp);
-				int multipleRes = numberGame*numberComp;
-				Console.WriteLine("Multiply " + multipleRes);
-				int firstDigits = checkFirstDigital(multipleRes);
-				if (firstDigits == 0)
-				{
-					Console.WriteLine("Continuo game. DRAW");
-				}
-				else if (gamerPerson.ModeGame.Contains(firstDigits))
-				{
-					Console.WriteLine("The gamer " + gamerPerson.PersonName.ToUpper() + " is WIN");
-				}
-				else
-				{
-					Console.WriteLine("The Computer is Win");
-				}
-				count++;
-			}
-			Console.ReadKey();
+			Console.Write("The Compute is number: ");
+			int compNumb = rnd.Next(0, 100);
+			Console.WriteLine(" " + compNumb);
+			return compNumb;
 		}
 
-		private int checkFirstDigital(int numbr)
+		public void OutputResultMultiply(int result)
 		{
-			int result = Math.Abs(numbr);
-			while (result >= 10)
-			{
-				result /= 10;
-			}
-			return result;
+			Console.WriteLine("Result Multiply: " + result);
 		}
+		
 	}
 }
