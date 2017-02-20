@@ -46,5 +46,21 @@ namespace FunnyGameUnitTest.tests
 			bool resultCompare = TestPersonController.CheckCorrectChoiceGamer(choiceGamer);
 			Assert.False(resultCompare);
 		}
+
+		[TestCase(100)]
+		[TestCase(23)]
+		public void CheckGenerateGamerNumberPositiv(int generateNumber)
+		{
+			bool resultRegex = TestPersonController.CheckGenerateNumberGamer(generateNumber);
+			Assert.True(resultRegex);
+		}
+
+		[TestCase(-20)]
+		[TestCase(-11)]
+		public void CheckGenerateGamerNumberNegativ(int generateNumber)
+		{
+			bool resultRegex = TestPersonController.CheckGenerateNumberGamer(generateNumber);
+			Assert.False(resultRegex);
+		}
 	}
 }

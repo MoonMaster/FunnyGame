@@ -42,27 +42,41 @@ namespace FunnyGame
 			Person gamer = new Person(gamerName, choiceGamer == "o" ? new int[]{1,2,3} : new []{4,5,6,7,8,9});
 			
 			do
-			{	
-				int gamerNumber = viewerGame.GetNumberGame(gamer);
-				int compNumer = viewerGame.GetNumberOpponent();
-				int resultMultiply = gamerNumber*compNumer;
-				viewerGame.OutputResultMultiply(resultMultiply);
-				int firstDigits = CheckFirstDigital(resultMultiply);
-				if (firstDigits == 0)
+			{
+				try
 				{
-					Console.WriteLine("Continuo game. DRAW");
+					int gamerNumber = viewerGame.GetNumberGame(gamer);
+					if (!personController.CheckGenerateNumberGamer(gamerNumber))
+					{
+						Console.WriteLine("Not correct number");
+					}
+					else
+					{
+						int compNumer = viewerGame.GetNumberOpponent();
+						int resultMultiply = gamerNumber*compNumer;
+						viewerGame.OutputResultMultiply(resultMultiply);
+						int firstDigits = CheckFirstDigital(resultMultiply);
+						if (firstDigits == 0)
+						{
+							Console.WriteLine("Continuo game. DRAW");
+						}
+						else if (gamer.ModeGame.Contains(firstDigits))
+						{
+							Console.WriteLine("The Gamer " + gamer.PersonName + " is WIN");
+						}
+						else
+						{
+							Console.WriteLine("The Computer is Win");
+						}
+						Console.WriteLine("For exit input esc. To Continue input various button");
+						if (Console.ReadKey(true).Key == ConsoleKey.Escape)
+							break;
+					}
 				}
-				else if (gamer.ModeGame.Contains(firstDigits))
+				catch (InvalidCastException ex)
 				{
-					Console.WriteLine("The Gamer " + gamer.PersonName + " is WIN");
+					Console.WriteLine(ex.ToString());
 				}
-				else
-				{
-					Console.WriteLine("The Computer is Win");
-				}
-				Console.WriteLine("For exit input esc. To Continue input various button");
-				if (Console.ReadKey(true).Key == ConsoleKey.Escape)
-					break;
 
 			} while (true);
 			Console.WriteLine("Exit programm");

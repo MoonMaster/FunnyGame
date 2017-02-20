@@ -53,6 +53,7 @@
     <Compile Include="src\Person.cs" />
     <Compile Include="src\PersonController.cs" />
     <Compile Include="src\ViewGame.cs" />
+    <Compile Include="src\ViewMainGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

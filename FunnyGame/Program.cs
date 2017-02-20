@@ -4,7 +4,7 @@ namespace FunnyGame
 {
 	class Program
 	{
-		private static Logger logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 		static void Main(string[] args)
 		{
 			logger.Info("The Game is start");
