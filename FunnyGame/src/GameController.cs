@@ -68,7 +68,7 @@ namespace FunnyGame
 						{
 							Console.WriteLine("The Computer is Win");
 						}
-						Console.WriteLine("For exit input esc. To Continue input various button");
+						Console.WriteLine("Press any key to continue. Press Esc to exit");
 						if (Console.ReadKey(true).Key == ConsoleKey.Escape)
 							break;
 					}
