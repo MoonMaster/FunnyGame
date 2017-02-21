@@ -7,10 +7,10 @@ namespace FunnyGame
 		private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 		static void Main(string[] args)
 		{
-			logger.Info("The Game is start");
+			logger.Info("The Game started");
 			GameController game = new GameController();
 			game.Run();
-			logger.Info("The Game is end");
+			logger.Info("The Game end");
 		}
 	}
 }
