@@ -18,5 +18,12 @@ namespace FunnyGame.View
 			Console.Write("Your choice: ");
 			return Console.ReadKey();
 		}
+
+		public void WelcomeMessage()
+		{
+			Console.ForegroundColor = ConsoleColor.Yellow;
+			Console.WriteLine("Welcome to Funny Game");
+			Console.ResetColor();
+		}
 	}
 }

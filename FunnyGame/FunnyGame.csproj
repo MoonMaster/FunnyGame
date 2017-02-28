@@ -49,15 +49,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Controller\BrowserGame.cs" />
-    <Compile Include="src\Controller\GamePlayPlayerVsPlayer.cs" />
-    <Compile Include="src\GameController.cs" />
+    <Compile Include="src\Controller\GamePlayPlayerVsComp.cs" />
     <Compile Include="src\Interface\IGameMode.cs" />
     <Compile Include="src\Model\Game.cs" />
     <Compile Include="src\Model\Player.cs" />
-    <Compile Include="src\PersonController.cs" />
-    <Compile Include="src\ViewGame.cs" />
-    <Compile Include="src\ViewMainGame.cs" />
     <Compile Include="src\View\Presentor.cs" />
+    <Compile Include="src\View\PresentorGamePlayPlayerVsPlayer.cs" />
     <Compile Include="src\View\PresentorMainGame.cs" />
   </ItemGroup>
   <ItemGroup>

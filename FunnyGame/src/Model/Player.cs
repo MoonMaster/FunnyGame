@@ -2,8 +2,8 @@
 {
 	public class Player
 	{
-		private string PlayerName { get; set; }
-		private int[] SetNumber { get; set; }
-
+		public string PlayerName { get; set; }
+		public int[] SetNumber { get; set; }
+		
 	}
 }
