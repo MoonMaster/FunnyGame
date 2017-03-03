@@ -14,10 +14,10 @@ namespace FunnyGame
 			PresentorMainGame browserMainOptions = new PresentorMainGame();
 			BrowserGame browserGame = new BrowserGame();
 			browserMainOptions.WelcomeMessage();
-			browserMainOptions.ShowMenu();
 			
 			while (true)
 			{
+				browserMainOptions.ShowMenu();
 				var choiceGamer = browserMainOptions.GetChoicePlayer();
 				switch (choiceGamer.KeyChar)
 				{

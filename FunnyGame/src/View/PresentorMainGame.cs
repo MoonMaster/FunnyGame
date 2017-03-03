@@ -6,7 +6,8 @@ namespace FunnyGame.View
 	{
 		private readonly string[] optionsGame = new[]
 		{
-			"1. Start the game in the player against the computer mode"
+			"1. Start the game in the player against the computer mode",
+			"esc. For exit"
 		};
 		public PresentorMainGame()
 		{
