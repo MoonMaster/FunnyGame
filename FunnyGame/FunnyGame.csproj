@@ -53,6 +53,7 @@
     <Compile Include="src\Interface\IGameMode.cs" />
     <Compile Include="src\Model\Game.cs" />
     <Compile Include="src\Model\Player.cs" />
+    <Compile Include="src\Model\Statistics.cs" />
     <Compile Include="src\View\Presentor.cs" />
     <Compile Include="src\View\PresentorGamePlayPlayerVsPlayer.cs" />
     <Compile Include="src\View\PresentorMainGame.cs" />
