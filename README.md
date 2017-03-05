@@ -7,3 +7,4 @@ When you start the game you must specify the name of the player (with a capital 
 The essence of the game: 
 You enter a random number, then your computer generates a random number. This number multiplied and taken the first digit of the results. If the figure is 0, the game result is a draw. Otherwise the analysis to which the set belongs to this figure.
 
+The program has a mechanism to collect statistics of the game.

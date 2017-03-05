@@ -19,16 +19,21 @@ namespace FunnyGame.Controller
 
 			Player playerOne = new Player(playerName, modeGame == 0 ? new int[] { 1, 2, 3 } : new[] { 4, 5, 6, 7, 8, 9 });
 			Player opposerPlayer = new Player("Computer");
+			Statistics statistics = new Statistics();
 			do
 			{
 				Game game = new Game(playerOne, opposerPlayer);
-				SimulationGame(game);
+				SimulationGame(game, statistics);
+				if (browserGame.IsShowStatistics())
+				{
+					statistics.PrintStatistics();
+				}
 
 			} while (browserGame.IsExit());
 
 		}
 
-		private void SimulationGame(Game game)
+		public void SimulationGame(Game game, Statistics statistics)
 		{
 
 			Console.Write("Input Number " + game.FirstPlayer.PlayerName + ": ");
@@ -44,6 +49,7 @@ namespace FunnyGame.Controller
 			Console.WriteLine("The multiply: " + resmultiply);
 
 			int firstDigits = CheckFirstDigital(resmultiply);
+			statistics.SetStatistics(firstDigits);
 
 			if (firstDigits == 0)
 			{

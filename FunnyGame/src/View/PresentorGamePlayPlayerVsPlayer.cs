@@ -75,6 +75,16 @@ namespace FunnyGame.View
 
 		}
 
+		public bool IsShowStatistics()
+		{
+			string message = "Show Statistics? Y or N";
+			WriteMessage(message);
+			var choiceGame = Console.ReadLine();
+			if (choiceGame == "Y")
+				return true;
+			return false;
+		}
+
 		#region private method
 
 		private bool IsValidValue(string str, string pattern)
