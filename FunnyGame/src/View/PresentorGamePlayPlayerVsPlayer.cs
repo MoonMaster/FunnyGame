@@ -32,6 +32,8 @@ namespace FunnyGame.View
 			string message = "For Exit input X";
 			WriteMessage(message);
 			string checkPlayer = Console.ReadLine();
+			if (checkPlayer == null)
+				return true;
 			if (checkPlayer.Trim() == "X" || checkPlayer.Trim() == "x")
 				return false;
 			if (checkPlayer.Trim().Length > 0)

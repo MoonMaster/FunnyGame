@@ -36,14 +36,14 @@ namespace FunnyGame.Controller
 		public void SimulationGame(Game game, Statistics statistics)
 		{
 
-			Console.Write("Input Number " + game.FirstPlayer.PlayerName + ": ");
+			Console.Write("Input Number {0}", game.FirstPlayer.PlayerName);
 
 			var choiceGamer = Console.ReadLine();
 
 
 			int numberGame = Convert.ToInt16(choiceGamer.Trim());
 			int numberOpponent = rnd.Next(0, 100);
-			Console.WriteLine("The " + game.SecondPlayer.PlayerName + " generate number : " + numberOpponent);
+			Console.WriteLine("The {0} generate number: {1}", game.SecondPlayer.PlayerName, numberOpponent);
 
 			int resmultiply = numberOpponent * numberGame;
 			Console.WriteLine("The multiply: " + resmultiply);
@@ -57,11 +57,11 @@ namespace FunnyGame.Controller
 			}
 			else if (game.FirstPlayer.SetNumber.Contains(firstDigits))
 			{
-				Console.WriteLine("The Gamer " + game.FirstPlayer.PlayerName + " is WIN");
+				Console.WriteLine("The player {0} is WIN", game.FirstPlayer.PlayerName);
 			}
 			else
 			{
-				Console.WriteLine("The " + game.SecondPlayer.PlayerName + " is Win");
+				Console.WriteLine("The player {0} is Win", game.SecondPlayer.PlayerName);
 			}
 
 

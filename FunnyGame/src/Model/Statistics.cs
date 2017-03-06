@@ -30,13 +30,13 @@ namespace FunnyGame.Model
 
 		public void PrintStatistics()
 		{
-			var countRoundGame = winsOMode.Count*1.0;
+			var countRoundGame = winsOMode.Count * 1.0;
 
-			double countEMode = (winsEMode.Sum()*1.0)/countRoundGame;
+			double countEMode = (winsEMode.Sum() * 1.0) / countRoundGame;
 
-			double countOMode = (winsOMode.Sum()*1.0)/countRoundGame;
+			double countOMode = (winsOMode.Sum() * 1.0) / countRoundGame;
 
-			Console.WriteLine("The Probably EMode {0} \t The Probably OMode {1}",countEMode, countOMode);
+			Console.WriteLine("The Probably EMode {0} \t The Probably OMode {1}. Total Round: {2}", countEMode, countOMode, countRoundGame);
 
 		}
 	}
