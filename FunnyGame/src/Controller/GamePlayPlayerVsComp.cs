@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
 using FunnyGame.Interface;
 using FunnyGame.Model;
 using FunnyGame.View;
@@ -18,6 +20,13 @@ namespace FunnyGame.Controller
 			int modeGame = browserGame.GetCorrectModeGame();
 
 			Player playerOne = new Player(playerName, modeGame == 0 ? new int[] { 1, 2, 3 } : new[] { 4, 5, 6, 7, 8, 9 });
+			DataContractJsonSerializer jSonFormatt = new DataContractJsonSerializer(typeof(Player));
+
+			using (FileStream fs = new FileStream("player.json", FileMode.OpenOrCreate))
+			{
+				jSonFormatt.WriteObject(fs, playerOne);
+			}
+
 			Player opposerPlayer = new Player("Computer");
 			Statistics statistics = new Statistics();
 			do
