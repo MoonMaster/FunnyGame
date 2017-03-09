@@ -22,48 +22,39 @@ namespace FunnyGame.Controller
 			Statistics statistics = new Statistics();
 			do
 			{
-				Game game = new Game(playerOne, opposerPlayer);
-				SimulationGame(game, statistics);
+
+				int playerNumer = browserGame.GetNumberPlayer(playerOne);
+				int opponentPlayerNumber = rnd.Next(0, 100);
+
+				var resultMultiply = playerNumer*opponentPlayerNumber;
+				Console.WriteLine("Result Multiply: {0}", resultMultiply);
+
+				int firstDigits = CheckFirstDigital(resultMultiply);
+				Console.WriteLine("The first Digits in {0}: {1}",resultMultiply, firstDigits);
+				statistics.SetStatistics(firstDigits);
+
+				if (firstDigits != 0)
+				{
+					if (playerOne.SetNumber.Contains(firstDigits))
+					{
+						Console.WriteLine("The player {0} is WIN", playerOne.PlayerName);
+					}
+					else
+					{
+						Console.WriteLine("The player {0} is Win", opposerPlayer.PlayerName);
+					}
+				}
+				else
+				{
+					Console.WriteLine("Continuo game. DRAW");
+				}
+
 				if (browserGame.IsShowStatistics())
 				{
 					statistics.PrintStatistics();
 				}
 
 			} while (browserGame.IsExit());
-
-		}
-
-		public void SimulationGame(Game game, Statistics statistics)
-		{
-
-			Console.Write("Input Number {0}", game.FirstPlayer.PlayerName);
-
-			var choiceGamer = Console.ReadLine();
-
-
-			int numberGame = Convert.ToInt16(choiceGamer.Trim());
-			int numberOpponent = rnd.Next(0, 100);
-			Console.WriteLine("The {0} generate number: {1}", game.SecondPlayer.PlayerName, numberOpponent);
-
-			int resmultiply = numberOpponent * numberGame;
-			Console.WriteLine("The multiply: " + resmultiply);
-
-			int firstDigits = CheckFirstDigital(resmultiply);
-			statistics.SetStatistics(firstDigits);
-
-			if (firstDigits == 0)
-			{
-				Console.WriteLine("Continuo game. DRAW");
-			}
-			else if (game.FirstPlayer.SetNumber.Contains(firstDigits))
-			{
-				Console.WriteLine("The player {0} is WIN", game.FirstPlayer.PlayerName);
-			}
-			else
-			{
-				Console.WriteLine("The player {0} is Win", game.SecondPlayer.PlayerName);
-			}
-
 
 		}
 

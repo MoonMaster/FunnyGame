@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using FunnyGame.Model;
 
 namespace FunnyGame.View
 {
@@ -86,6 +87,17 @@ namespace FunnyGame.View
 				return true;
 			return false;
 		}
+
+		public int GetNumberPlayer(Player player)
+		{
+			string message = "What is your number " + player.PlayerName;
+			WriteMessage(message);
+			int playerNumber = Convert.ToInt16(Console.ReadLine());
+			return playerNumber;
+
+		}
+
+		
 
 		#region private method
 

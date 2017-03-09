@@ -22,6 +22,7 @@ namespace FunnyGame
 				switch (choiceGamer.KeyChar)
 				{
 					case '1':
+						logger.Info("Check first mode game");
 						browserGame.Execute(new GamePlayPlayerVsComp());
 						break;
 					default:
