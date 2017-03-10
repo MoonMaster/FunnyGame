@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using FunnyGame.Model;
 
@@ -97,7 +98,43 @@ namespace FunnyGame.View
 
 		}
 
-		
+		public int MultiplyResultPlayer(Player player, Player opposerPlayer)
+		{
+			int numberPlayer = player.ConceivedNumbersPlayer.Last();
+			int numberOpposserPlayer = opposerPlayer.ConceivedNumbersPlayer.Last();
+
+			Console.WriteLine("The number player {0} is: {1}",player.PlayerName,numberPlayer);
+			Console.WriteLine("The number player {0} is: {1}", opposerPlayer.PlayerName,numberOpposserPlayer);
+
+			int multiplyRes = numberOpposserPlayer*numberPlayer;
+
+			Console.WriteLine("Result multiply: {0}", multiplyRes);
+
+			return multiplyRes;
+
+		}
+
+		public void ShowMessageForWinRound(int firstDigits, Player playerOne, string opposerNamePlayer)
+		{
+			Console.WriteLine("The first Digits is {0}", firstDigits);
+
+			if (firstDigits != 0)
+			{
+				if (playerOne.SetNumber.Contains(firstDigits))
+				{
+					Console.WriteLine("The player {0} is WIN", playerOne.PlayerName);
+				}
+				else
+				{
+					Console.WriteLine("The player {0} is Win", opposerNamePlayer);
+				}
+			}
+			else
+			{
+				string message = "In this round draw";
+				WriteMessage(message);
+			}
+		}
 
 		#region private method
 

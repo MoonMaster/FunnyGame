@@ -27,7 +27,7 @@ namespace FunnyGame.Model
 			}
 		}
 
-		public void PrintStatistics()
+		public void ShowStatistics()
 		{
 			var countItem = Stat.Count() *1.0;
 			double countEmode = Stat.Count(item => item == "E_Mode") * 1.0;
