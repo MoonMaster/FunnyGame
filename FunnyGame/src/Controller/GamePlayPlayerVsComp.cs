@@ -22,6 +22,9 @@ namespace FunnyGame.Controller
 			Player playerOne = new Player(playerName, modeGame == 0 ? new int[] { 1, 2, 3 } : new[] { 4, 5, 6, 7, 8, 9 });
 			
 			Player opposerPlayer = new Player("Computer");
+
+			Game gamer = new Game(playerOne, opposerPlayer);
+
 			Statistics statistics = new Statistics();
 			do
 			{

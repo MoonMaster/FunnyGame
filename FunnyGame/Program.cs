@@ -7,10 +7,10 @@ namespace FunnyGame
 {
 	class Program
 	{
-		private static Logger logger = LogManager.GetLogger("FunnyGame");
+		
 		static void Main(string[] args)
 		{
-			logger.Info("The Game started");
+			GameLog.WriteMessage("The Game started");
 			PresentorMainGame browserMainOptions = new PresentorMainGame();
 			BrowserGame browserGame = new BrowserGame();
 			browserMainOptions.WelcomeMessage();
@@ -22,7 +22,7 @@ namespace FunnyGame
 				switch (choiceGamer.KeyChar)
 				{
 					case '1':
-						logger.Info("Check first mode game");
+						GameLog.WriteMessage("Checl first mode game");
 						browserGame.Execute(new GamePlayPlayerVsComp());
 						break;
 					default:
