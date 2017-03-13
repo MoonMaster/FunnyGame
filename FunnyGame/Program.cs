@@ -32,7 +32,7 @@ namespace FunnyGame
 				}
 				if (choiceGamer.Key == ConsoleKey.Escape)
 				{
-					logger.Info("Logged out of the game");
+					GameLog.WriteMessage("Logged out of the game");
 					Environment.Exit(0);
 					
 				}

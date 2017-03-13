@@ -21,6 +21,7 @@ namespace FunnyGame.Controller
 					break;
 				default:
 					logger.Warn(message);
+					break;
 			}
 		}
 	}
