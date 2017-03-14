@@ -2,7 +2,7 @@
 
 namespace FunnyGame.View
 {
-	public abstract class Presentor
+	public abstract class GameViewer
 	{
 		protected string[] Options;
 		public virtual void ShowMenu()

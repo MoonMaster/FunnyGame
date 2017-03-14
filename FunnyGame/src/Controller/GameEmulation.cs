@@ -3,7 +3,7 @@ using FunnyGame.Interface;
 
 namespace FunnyGame.Controller
 {
-	public class BrowserGame
+	public class GameEmulation
 	{
 		public void Execute(IGameMode gameMode)
 		{

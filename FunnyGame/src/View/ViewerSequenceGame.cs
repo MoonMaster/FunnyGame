@@ -5,9 +5,8 @@ using FunnyGame.Model;
 
 namespace FunnyGame.View
 {
-	public class PresentorGamePlayPlayerVsPlayer : Presentor
+	public class GameViewerSequenceGame : GameViewer
 	{
-
 		private string patternName = @"^[A-Z][a-z]+$";
 		private string patternModeGame = @"^[e|o]$";
 
@@ -17,16 +16,9 @@ namespace FunnyGame.View
 			"[e] - second part {4,5,6,7,8,9}"
 		};
 
-		public PresentorGamePlayPlayerVsPlayer()
+		public GameViewerSequenceGame()
 		{
 			base.Options = optionsGameMode;
-		}
-
-		public string GetUserName()
-		{
-			Console.WriteLine("What is your name?");
-			string playerName = Console.ReadLine();
-			return playerName;
 		}
 
 		public bool IsExit()
@@ -52,6 +44,7 @@ namespace FunnyGame.View
 			{
 				WriteMessage(message);
 				playerName = Console.ReadLine();
+
 				if (!IsValidValue(playerName, patternName))
 				{
 					WriteMessage(errorMessage);
@@ -84,9 +77,7 @@ namespace FunnyGame.View
 			string message = "Show Statistics? Y or N";
 			WriteMessage(message);
 			var choiceGame = Console.ReadLine();
-			if (choiceGame == "Y")
-				return true;
-			return false;
+			return choiceGame == "Y";
 		}
 
 		public int GetNumberPlayer(Player player)

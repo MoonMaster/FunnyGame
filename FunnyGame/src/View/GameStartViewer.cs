@@ -2,14 +2,14 @@
 
 namespace FunnyGame.View
 {
-	public class PresentorMainGame : Presentor
+	public class GameStartViewer : GameViewer
 	{
 		private readonly string[] optionsGame = new[]
 		{
 			"1. Start the game in the player against the computer mode",
 			"esc. For exit"
 		};
-		public PresentorMainGame()
+		public GameStartViewer()
 		{
 			base.Options = optionsGame;
 		}

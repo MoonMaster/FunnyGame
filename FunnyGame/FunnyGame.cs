@@ -1,29 +1,27 @@
 ﻿using System;
 using FunnyGame.Controller;
 using FunnyGame.View;
-using NLog;
 
 namespace FunnyGame
 {
-	class Program
+	class FunnyGame
 	{
-		
 		static void Main(string[] args)
 		{
 			GameLog.WriteMessage("The Game started");
-			PresentorMainGame browserMainOptions = new PresentorMainGame();
-			BrowserGame browserGame = new BrowserGame();
-			browserMainOptions.WelcomeMessage();
+			GameStartViewer viewerMainOption = new GameStartViewer();
+			GameEmulation gameEmulation = new GameEmulation();
+			viewerMainOption.WelcomeMessage();
 			
 			while (true)
 			{
-				browserMainOptions.ShowMenu();
-				var choiceGamer = browserMainOptions.GetChoicePlayer();
+				viewerMainOption.ShowMenu();
+				var choiceGamer = viewerMainOption.GetChoicePlayer();
 				switch (choiceGamer.KeyChar)
 				{
 					case '1':
 						GameLog.WriteMessage("Checl first mode game");
-						browserGame.Execute(new GamePlayPlayerVsComp());
+						gameEmulation.Execute(new GameCompVsHuman());
 						break;
 					default:
 						Console.WriteLine("Error"); 
