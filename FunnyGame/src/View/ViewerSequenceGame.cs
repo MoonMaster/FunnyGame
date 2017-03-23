@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
+using FunnyGame.Controller;
 using FunnyGame.Model;
 
 namespace FunnyGame.View
@@ -108,15 +110,21 @@ namespace FunnyGame.View
 		public void ShowMessageForWinRound(int firstDigits, Player playerOne, string opposerNamePlayer)
 		{
 			Console.WriteLine("The first Digits is {0}", firstDigits);
-
+			StringBuilder messageGame = new StringBuilder("The player is ");
 			if (firstDigits != 0)
 			{
 				if (playerOne.SetNumber.Contains(firstDigits))
 				{
+					messageGame.Append(Convert.ToString(playerOne.PlayerName));
+					messageGame.Append(" is Win");
+					GameLog.WriteMessage(messageGame.ToString());
 					Console.WriteLine("The player {0} is WIN", playerOne.PlayerName);
 				}
 				else
 				{
+					messageGame.Append(Convert.ToString(opposerNamePlayer));
+					messageGame.Append(" is Win");
+					GameLog.WriteMessage(messageGame.ToString());
 					Console.WriteLine("The player {0} is Win", opposerNamePlayer);
 				}
 			}
@@ -125,6 +133,7 @@ namespace FunnyGame.View
 				string message = "In this round draw";
 				WriteMessage(message);
 			}
+			messageGame.Clear();
 		}
 
 		#region private method

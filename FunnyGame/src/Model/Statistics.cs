@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace FunnyGame.Model
 {
 	public class Statistics
@@ -11,6 +12,7 @@ namespace FunnyGame.Model
 		 * E_mode = {4,5,6,7,8,9}
 		 * DRAW = {0}
 		*/
+
 		public void SetStatistics(int mode)
 		{
 			if (mode == 0)
@@ -37,5 +39,7 @@ namespace FunnyGame.Model
 			Console.WriteLine("Probability O Mode = {0}", countOmode/countItem);
 			Console.WriteLine("Count Round = {0}", (int)countItem);
 		}
+
+		
 	}
 }
