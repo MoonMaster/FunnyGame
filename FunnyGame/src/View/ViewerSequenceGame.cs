@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using FunnyGame.Controller;
+using FunnyGame.Helper;
 using FunnyGame.Model;
 
 namespace FunnyGame.View
 {
 	public class GameViewerSequenceGame : GameViewer
 	{
-		private string patternName = @"^[A-Z][a-z]+$";
-		private string patternModeGame = @"^[e|o]$";
-
+		
 		private readonly string[] optionsGameMode = new[]
 		{
 			"[o] - first part {1,2,3}",
@@ -47,11 +45,11 @@ namespace FunnyGame.View
 				WriteMessage(message);
 				playerName = Console.ReadLine();
 
-				if (!IsValidValue(playerName, patternName))
+				if (!GameCheckedHelper.IsValidUserName(playerName))
 				{
 					WriteMessage(errorMessage);
 				}
-			} while (!IsValidValue(playerName, patternName));
+			} while (!GameCheckedHelper.IsValidUserName(playerName));
 			return playerName;
 		}
 		// return 0 - {1,2,3} ; 1 - {4,5,6,7,8,9}
@@ -65,11 +63,11 @@ namespace FunnyGame.View
 				WriteMessage(message);
 				base.ShowMenu();
 				modeGame = Console.ReadLine();
-				if (!IsValidValue(modeGame, patternModeGame))
+				if (!GameCheckedHelper.IsValidInputModeGame(modeGame))
 				{
 					WriteMessage(errorMessage);
 				}
-			} while (!IsValidValue(modeGame, patternModeGame));
+			} while (!GameCheckedHelper.IsValidInputModeGame(modeGame));
 			return modeGame == "o" ? 0 : 1;
 
 		}
@@ -137,13 +135,6 @@ namespace FunnyGame.View
 		}
 
 		#region private method
-
-		private bool IsValidValue(string str, string pattern)
-		{
-			Regex regex = new Regex(pattern);
-			var matches = regex.Match(str);
-			return matches.Success;
-		}
 
 		private void WriteMessage(string message)
 		{

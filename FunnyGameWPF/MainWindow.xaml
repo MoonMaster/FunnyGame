@@ -1,12 +1,21 @@
 ﻿<Window x:Class="FunnyGameWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="275.685" Width="242.123">
-	<Grid HorizontalAlignment="Left" Width="189" Height="235" VerticalAlignment="Top">
-		<Button Content="Start" HorizontalAlignment="Left" Margin="26,191,0,0" VerticalAlignment="Top" Width="98" Height="32" Click="Button_Click"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="88,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.052,0.379"/>
-		<Label Content="Имя" HorizontalAlignment="Left" Margin="26,29,0,0" VerticalAlignment="Top"/>
-		<RadioButton Content="O mode {1,2,3}" HorizontalAlignment="Left" Margin="88,72,0,0" VerticalAlignment="Top"/>
-		<RadioButton Content="E mode {4,5,6}" HorizontalAlignment="Left" Margin="88,107,0,0" VerticalAlignment="Top"/>
+        Title="FunnyGame" Height="171.685" Width="242.123">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		
+		<Label Name="UserName" Content="Имя игрока:" Grid.Row="0">
+		</Label>
+		<TextBox Name="InputUserName" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="15" MaxHeight="200" MinWidth="100" MaxWidth="200" Grid.Row="0" Margin="83,0,51,0"></TextBox>
+		<StackPanel Grid.Row="1">
+			<RadioButton Name="OModeGame" Content="O - {1,2,3}"></RadioButton>
+			<RadioButton Name="EModeGame" Content="E - {4,5,6,7,8,9}"></RadioButton>
+		</StackPanel>
+		<Button Name="StartGame" Content="Start" Grid.Row="2" Height="50" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Click="StartGame_Click"></Button>
 	</Grid>
 </Window>
