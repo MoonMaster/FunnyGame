@@ -20,7 +20,7 @@ namespace FunnyGame
 				switch (choiceGamer.KeyChar)
 				{
 					case '1':
-						GameLog.WriteMessage("Checl first mode game");
+						GameLog.WriteMessage("Check first mode game");
 						gameEmulation.Execute(new GameCompVsHuman());
 						break;
 					default:

@@ -11,7 +11,13 @@
 		
 		<Label Name="UserName" Content="Имя игрока:" Grid.Row="0">
 		</Label>
-		<TextBox Name="InputUserName" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="15" MaxHeight="200" MinWidth="100" MaxWidth="200" Grid.Row="0" Margin="83,0,51,0"></TextBox>
+		<TextBox Name="InputUserName" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="15" MaxHeight="200" MinWidth="100" MaxWidth="200" Grid.Row="0" Margin="83,0,51,0">
+			<TextBox.ToolTip>
+				<ToolTip>
+					<Label Margin="3">Имя должно начинаться на заглавную букву и не содержать цифр</Label>
+				</ToolTip>
+			</TextBox.ToolTip>
+		</TextBox>
 		<StackPanel Grid.Row="1">
 			<RadioButton Name="OModeGame" Content="O - {1,2,3}"></RadioButton>
 			<RadioButton Name="EModeGame" Content="E - {4,5,6,7,8,9}"></RadioButton>

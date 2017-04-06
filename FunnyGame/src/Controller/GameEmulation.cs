@@ -7,7 +7,6 @@ namespace FunnyGame.Controller
 	{
 		public void Execute(IGameMode gameMode)
 		{
-			Console.Clear();
 			gameMode.Play();
 		}
 	}
