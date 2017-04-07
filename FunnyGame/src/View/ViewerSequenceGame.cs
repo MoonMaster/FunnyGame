@@ -10,7 +10,7 @@ namespace FunnyGame.View
 	public class GameViewerSequenceGame : GameViewer
 	{
 		
-		private readonly string[] optionsGameMode = new[]
+		private readonly string[] _optionsGameMode = new[]
 		{
 			"[o] - first part {1,2,3}",
 			"[e] - second part {4,5,6,7,8,9}"
@@ -18,7 +18,7 @@ namespace FunnyGame.View
 
 		public GameViewerSequenceGame()
 		{
-			base.Options = optionsGameMode;
+			base.Options = _optionsGameMode;
 		}
 
 		public bool IsExit()
@@ -89,13 +89,13 @@ namespace FunnyGame.View
 
 		}
 
-		public int MultiplyResultPlayer(Player player, Player opposerPlayer)
+		public int MultiplyResultPlayer(Game gameUser)
 		{
-			int numberPlayer = player.ConceivedNumbersPlayer.Last();
-			int numberOpposserPlayer = opposerPlayer.ConceivedNumbersPlayer.Last();
+			int numberPlayer = gameUser.FirstPlayer.ConceivedNumbersPlayer.Last();
+			int numberOpposserPlayer = gameUser.SecondPlayer.ConceivedNumbersPlayer.Last();
 
-			Console.WriteLine("The number player {0} is: {1}",player.PlayerName,numberPlayer);
-			Console.WriteLine("The number player {0} is: {1}", opposerPlayer.PlayerName,numberOpposserPlayer);
+			Console.WriteLine("The number player {0} is: {1}",gameUser.FirstPlayer.PlayerName,numberPlayer);
+			Console.WriteLine("The number player {0} is: {1}", gameUser.SecondPlayer.PlayerName,numberOpposserPlayer);
 
 			int multiplyRes = numberOpposserPlayer*numberPlayer;
 
@@ -105,25 +105,25 @@ namespace FunnyGame.View
 
 		}
 
-		public void ShowMessageForWinRound(int firstDigits, Player playerOne, string opposerNamePlayer)
+		public void ShowMessageForWinRound(int firstDigits, Game gameUser)
 		{
 			Console.WriteLine("The first Digits is {0}", firstDigits);
 			StringBuilder messageGame = new StringBuilder("The player is ");
 			if (firstDigits != 0)
 			{
-				if (playerOne.SetNumber.Contains(firstDigits))
+				if (gameUser.FirstPlayer.SetNumber.Contains(firstDigits))
 				{
-					messageGame.Append(Convert.ToString(playerOne.PlayerName));
+					messageGame.Append(Convert.ToString(gameUser.FirstPlayer.PlayerName));
 					messageGame.Append(" is Win");
 					GameLog.WriteMessage(messageGame.ToString());
-					Console.WriteLine("The player {0} is WIN", playerOne.PlayerName);
+					Console.WriteLine("The player {0} is WIN", gameUser.FirstPlayer.PlayerName);
 				}
 				else
 				{
-					messageGame.Append(Convert.ToString(opposerNamePlayer));
+					messageGame.Append(Convert.ToString(gameUser.SecondPlayer.PlayerName));
 					messageGame.Append(" is Win");
 					GameLog.WriteMessage(messageGame.ToString());
-					Console.WriteLine("The player {0} is Win", opposerNamePlayer);
+					Console.WriteLine("The player {0} is Win", gameUser.SecondPlayer.PlayerName);
 				}
 			}
 			else
@@ -136,7 +136,7 @@ namespace FunnyGame.View
 
 		#region private method
 
-		private void WriteMessage(string message)
+		private static void WriteMessage(string message)
 		{
 			Console.WriteLine(message);
 		}

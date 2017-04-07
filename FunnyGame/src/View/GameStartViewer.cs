@@ -4,14 +4,14 @@ namespace FunnyGame.View
 {
 	public class GameStartViewer : GameViewer
 	{
-		private readonly string[] optionsGame = new[]
+		private readonly string[] _optionsGame = new[]
 		{
 			"1. Start the game in the player against the computer mode",
 			"esc. For exit"
 		};
 		public GameStartViewer()
 		{
-			base.Options = optionsGame;
+			base.Options = _optionsGame;
 		}
 
 		public ConsoleKeyInfo GetChoicePlayer()

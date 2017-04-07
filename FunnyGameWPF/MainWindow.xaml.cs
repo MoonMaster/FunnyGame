@@ -33,7 +33,7 @@ namespace FunnyGameWPF
 			Game gameSimulation = new Game(firstPlayer,secondPlayer);
 			GameEmulation gameEmulation = new GameEmulation();
 
-			gameEmulation.Execute(new GameStart());
+			
 		}
 
 	}

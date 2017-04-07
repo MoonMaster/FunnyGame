@@ -17,6 +17,7 @@ namespace FunnyGameUnitTest.tests
 		[TestCase("Abc1")]
 		[TestCase("12Abc12")]
 		[TestCase("ABc")]
+		[TestCase(" ")]
 		public void CheckUnValiedUserName(string userName)
 		{
 			var result = GameCheckedHelper.IsValidUserName(userName);

@@ -21,32 +21,13 @@ namespace FunnyGame.Controller
 			Player secondPlayer = new Player("Computer");
 
 			Game gamer = new Game(playerOne, secondPlayer);
-
-			Statistics statistics = new Statistics();
-			do
-			{
-
-				int playerNumer = viewerGame.GetNumberPlayer(playerOne);
-				playerOne.ConceivedNumbersPlayer.Add(playerNumer);
-				int opponentPlayerNumber = rnd.Next(0, 100);
-				secondPlayer.ConceivedNumbersPlayer.Add(opponentPlayerNumber);
-
-				var resultMultiply = viewerGame.MultiplyResultPlayer(playerOne, secondPlayer);
-				
-				var firstDigits = CheckFirstDigital(resultMultiply);
-
-				viewerGame.ShowMessageForWinRound(firstDigits,playerOne,secondPlayer.PlayerName);
-				
-				statistics.SetStatistics(firstDigits);
-
-				if (viewerGame.IsShowStatistics())
-				{
-					statistics.ShowStatistics();
-				}
-
-			} while (viewerGame.IsExit());
+			
+			SimulationGame(gamer, viewerGame);
+			
+			
 
 		}
+		#region Private Region
 
 		private int CheckFirstDigital(int numbr)
 		{
@@ -57,5 +38,33 @@ namespace FunnyGame.Controller
 			}
 			return result;
 		}
+
+		private void SimulationGame(Game gameUser, GameViewerSequenceGame viewerGame)
+		{
+			Statistics statistics = new Statistics();
+			do
+			{
+				int playerNumer = viewerGame.GetNumberPlayer(gameUser.FirstPlayer);
+				gameUser.FirstPlayer.ConceivedNumbersPlayer.Add(playerNumer);
+				int opponentPlayerNumber = rnd.Next(0, 100);
+				gameUser.SecondPlayer.ConceivedNumbersPlayer.Add(opponentPlayerNumber);
+
+				var resultMultiply = viewerGame.MultiplyResultPlayer(gameUser);
+
+				var firstDigits = CheckFirstDigital(resultMultiply);
+
+				viewerGame.ShowMessageForWinRound(firstDigits, gameUser);
+
+				statistics.SetStatistics(firstDigits);
+
+				if (viewerGame.IsShowStatistics())
+				{
+					statistics.ShowStatistics();
+				}
+
+			} while (viewerGame.IsExit());
+		}
+
+		#endregion Private Region
 	}
 }

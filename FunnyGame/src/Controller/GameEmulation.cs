@@ -1,5 +1,4 @@
-﻿using System;
-using FunnyGame.Interface;
+﻿using FunnyGame.Interface;
 
 namespace FunnyGame.Controller
 {

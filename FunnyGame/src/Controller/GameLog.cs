@@ -8,15 +8,15 @@ namespace FunnyGame.Controller
 
 		public static void WriteMessage(string message, string type = "info")
 		{
-			switch (type)
+			switch (type.ToUpper())
 			{
-				case "info":
+				case "INFO":
 					logger.Info(message);
 					break;
-				case "debug":
+				case "DEBUG":
 					logger.Debug(message);
 					break;
-				case "error":
+				case "ERROR":
 					logger.Error(message);
 					break;
 				default:
