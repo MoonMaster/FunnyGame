@@ -1,8 +1,17 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using FunnyGame.Controller;
-using FunnyGame.Helper;
-using FunnyGame.Model;
-using FunnyGameWPF.Controller;
 
 namespace FunnyGameWPF
 {
@@ -16,25 +25,10 @@ namespace FunnyGameWPF
 			InitializeComponent();
 		}
 
-		private void StartGame_Click(object sender, RoutedEventArgs e)
+		private void Start_Click(object sender, RoutedEventArgs e)
 		{
-			var valueInputName = InputUserName.Text;
-			
-			if (!GameCheckedHelper.IsValidUserName(valueInputName))
-			{
-				MessageBox.Show("Некорректное имя", "Ошибка при вводе имени", MessageBoxButton.OK, MessageBoxImage.Error);
-				InputUserName.Text = string.Empty;
-			}
-			var modeGame = OModeGame.IsChecked == true ? 0 : 1;
-
-			Player firstPlayer = new Player(valueInputName, modeGame == 0 ? new[] { 1, 2, 3 } : new[] { 4, 5, 6, 7, 8, 9 });
-			Player secondPlayer = new Player("Computer");
-
-			Game gameSimulation = new Game(firstPlayer,secondPlayer);
 			GameEmulation gameEmulation = new GameEmulation();
-
-			
+			gameEmulation.Execute(new GameCompVsHuman());
 		}
-
 	}
 }
