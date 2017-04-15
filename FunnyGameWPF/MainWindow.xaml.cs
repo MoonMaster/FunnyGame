@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using FunnyGame.Controller;
+using FunnyGameWPF.Controls;
 
 namespace FunnyGameWPF
 {
@@ -28,7 +17,14 @@ namespace FunnyGameWPF
 		private void Start_Click(object sender, RoutedEventArgs e)
 		{
 			GameEmulation gameEmulation = new GameEmulation();
-			gameEmulation.Execute(new GameCompVsHuman());
+			if (ModeGame.IsChecked == true)
+			{
+				gameEmulation.Execute(new SettingGame());
+			}
+			else
+			{
+				MessageBox.Show("Неверное значение", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+			}
 		}
 	}
 }

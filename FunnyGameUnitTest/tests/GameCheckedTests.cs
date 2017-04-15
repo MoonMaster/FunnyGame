@@ -30,5 +30,14 @@ namespace FunnyGameUnitTest.tests
 			var result = GameCheckedHelper.IsValidInputModeGame(modeGame);
 			Assert.IsTrue(result);
 		}
+
+		[TestCase(10)]
+		[TestCase(1221)]
+		[TestCase(1)]
+		public void CheckedGetFirstDigitInNumber(int number)
+		{
+			var result = GameCheckedHelper.GetFirstDigitInNumber(number);
+			Assert.AreEqual(1,result);
+		}
 	}
 }

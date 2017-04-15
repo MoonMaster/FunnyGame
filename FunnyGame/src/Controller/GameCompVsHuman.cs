@@ -1,4 +1,5 @@
 ﻿using System;
+using FunnyGame.Helper;
 using FunnyGame.Interface;
 using FunnyGame.Model;
 using FunnyGame.View;
@@ -29,16 +30,6 @@ namespace FunnyGame.Controller
 		}
 		#region Private Region
 
-		private int CheckFirstDigital(int numbr)
-		{
-			int result = Math.Abs(numbr);
-			while (result >= 10)
-			{
-				result /= 10;
-			}
-			return result;
-		}
-
 		private void SimulationGame(Game gameUser, GameViewerSequenceGame viewerGame)
 		{
 			Statistics statistics = new Statistics();
@@ -51,7 +42,7 @@ namespace FunnyGame.Controller
 
 				var resultMultiply = viewerGame.MultiplyResultPlayer(gameUser);
 
-				var firstDigits = CheckFirstDigital(resultMultiply);
+				var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(resultMultiply);
 
 				viewerGame.ShowMessageForWinRound(firstDigits, gameUser);
 

@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace FunnyGame.Helper
 {
@@ -18,6 +19,16 @@ namespace FunnyGame.Helper
 			Regex regex = new Regex(patterModeGame.Trim());
 			var result = regex.Match(inputModeGame);
 			return result.Success;
+		}
+
+		public static int GetFirstDigitInNumber(int num)
+		{
+			var result = Math.Abs(num);
+			while (result >= 10)
+			{
+				result /= 10;
+			}
+			return result;
 		}
 	}
 }

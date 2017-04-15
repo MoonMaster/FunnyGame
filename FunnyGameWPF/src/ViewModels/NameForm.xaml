@@ -1,8 +1,0 @@
-﻿<Window x:Class="FunnyGameWPF.ViewModels.NameForm"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="NameForm" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
-</Window>

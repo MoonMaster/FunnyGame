@@ -58,8 +58,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\ViewModels\NameForm.xaml.cs">
-      <DependentUpon>NameForm.xaml</DependentUpon>
+    <Compile Include="src\Controls\SettinGame.xaml.cs">
+      <DependentUpon>SettinGame.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +93,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\Controls\" />
+    <Folder Include="src\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FunnyGame\FunnyGame.csproj">
@@ -106,7 +106,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\ViewModels\NameForm.xaml">
+    <Page Include="src\Controls\SettinGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
