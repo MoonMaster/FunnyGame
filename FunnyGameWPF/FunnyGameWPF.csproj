@@ -58,6 +58,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\Controls\GameSimulation.xaml.cs">
+      <DependentUpon>GameSimulation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\Controls\SettinGame.xaml.cs">
       <DependentUpon>SettinGame.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Controls\GameSimulation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
