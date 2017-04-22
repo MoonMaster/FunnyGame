@@ -10,7 +10,7 @@
 		</Grid.RowDefinitions>
 		<Label Name="UserName" Grid.Row="0">Имя игрока:</Label>
 		<TextBox Name="InputUserName" Height="20" Width="100" VerticalAlignment="Top" Margin="5 5" Grid.Row="0"></TextBox>
-		<StackPanel Grid.Row="1" Name="ModeGameSettings" VerticalAlignment="Center">
+		<StackPanel Grid.Row="1" Name="ModeGameSettings" VerticalAlignment="Center" Margin="10 10 10 10">
 			<RadioButton Name="OmodeGame">{1,2,3}</RadioButton>
 			<RadioButton Name="EModeGame">{4,5,6,7,8,9}</RadioButton>
 		</StackPanel>
