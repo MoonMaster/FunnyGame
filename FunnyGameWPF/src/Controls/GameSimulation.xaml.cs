@@ -12,18 +12,20 @@ namespace FunnyGameWPF.Controls
 	/// </summary>
 	public partial class GameSimulation : Window
 	{
-		private Game Gamer;
+		public Game Gamer { get; private set; }
 		private static Random rnd = new Random();
 		public GameSimulation(Game game)
 		{
 			InitializeComponent();
+			InputName.DataContext = game;
 			Show();
 			Gamer = game;
-			string str = InputName.Content.ToString();
+			//InputName.DataContext = game;
+			/*string str = InputName.Content.ToString();
 			StringBuilder strBuilder = new StringBuilder(str);
 			strBuilder.Append(" ");
 			strBuilder.Append(Gamer.FirstPlayer.PlayerName);
-			InputName.Content = strBuilder.ToString();
+			InputName.Content = strBuilder.ToString();*/
 		}
 
 		private void Run_Click(object sender, RoutedEventArgs e)

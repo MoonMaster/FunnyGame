@@ -7,7 +7,7 @@
 			<RowDefinition Height="4*"></RowDefinition>
 			<RowDefinition></RowDefinition>
 		</Grid.RowDefinitions>
-		<Label Name="InputName" Content="Введите ваше число" Grid.Row="0"></Label>
+		<Label Name="InputName" Content="{Binding Path=FirstPlayer.PlayerName}" Grid.Row="0"></Label>
 		<TextBox Name="InputNumber" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 -90 10" Grid.Row="0" BorderBrush="Blue"></TextBox>
 		<Label Grid.Row="0" Name="OpponentName" Content="Число Сomputer: " Margin="10,35,174,157"></Label>
 		<Label Grid.Row="0" Name="ComputerNumb" Content="" Margin="141,35,51,157"></Label>
