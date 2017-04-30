@@ -34,7 +34,7 @@ namespace FunnyGameWPF.Controls
 			int oppontNumber = rnd.Next(0, 100);
 			ComputerNumb.Content = oppontNumber;
 
-			int multiplyResult = GameCheckedHelper.multiplyNumber(playerNumber, oppontNumber);
+			int multiplyResult = GameCheckedHelper.MultiplyNumber(playerNumber, oppontNumber);
 
 			if (multiplyResult == 0)
 			{

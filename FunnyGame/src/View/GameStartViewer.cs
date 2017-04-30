@@ -1,8 +1,9 @@
 ﻿using System;
+using FunnyGame.Interface;
 
 namespace FunnyGame.View
 {
-	public class GameStartViewer : GameViewer
+	public class GameStartViewer : GameViewer, IGameBeginViewer
 	{
 		private readonly string[] _optionsGame = new[]
 		{
@@ -20,11 +21,17 @@ namespace FunnyGame.View
 			return Console.ReadKey();
 		}
 
+		public override void ShowMenu()
+		{
+			base.ShowMenu();
+		}
+
 		public void WelcomeMessage()
 		{
 			Console.ForegroundColor = ConsoleColor.Yellow;
 			Console.WriteLine("Welcome to Funny Game");
 			Console.ResetColor();
 		}
+
 	}
 }

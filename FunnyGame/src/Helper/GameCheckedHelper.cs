@@ -31,9 +31,9 @@ namespace FunnyGame.Helper
 			return result;
 		}
 
-		public static int multiplyNumber(int num1, int num2)
+		public static int MultiplyNumber(int num1, int num2)
 		{
-			return num1*num2;
+			return Math.Abs(num1*num2);
 		}
 	}
 }

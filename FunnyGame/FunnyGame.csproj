@@ -55,6 +55,7 @@
     <Compile Include="src\Helper\GameCheckedHelper.cs" />
     <Compile Include="src\Interface\IGameBeginViewer.cs" />
     <Compile Include="src\Interface\IGameMode.cs" />
+    <Compile Include="src\Interface\ISequenceGame.cs" />
     <Compile Include="src\Model\Game.cs" />
     <Compile Include="src\Model\Player.cs" />
     <Compile Include="src\Model\Statistics.cs" />

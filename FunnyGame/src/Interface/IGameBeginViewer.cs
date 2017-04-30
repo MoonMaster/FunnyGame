@@ -6,6 +6,7 @@ namespace FunnyGame.Interface
 	{
 		ConsoleKeyInfo GetChoicePlayer();
 		void WelcomeMessage();
+		void ShowMenu();
 
 	}
 }

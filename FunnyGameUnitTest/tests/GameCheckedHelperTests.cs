@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace FunnyGameUnitTest.tests
 {
 	[TestFixture]
-	public class GameCheckedTests
+	public class GameCheckedHelperTests
 	{
 		[TestCase("Abc")]
 		[TestCase("Test")]
@@ -31,13 +31,24 @@ namespace FunnyGameUnitTest.tests
 			Assert.IsTrue(result);
 		}
 
-		[TestCase(10)]
-		[TestCase(1221)]
-		[TestCase(1)]
-		public void CheckedGetFirstDigitInNumber(int number)
+		[TestCase(10, 1)]
+		[TestCase(1221, 1)]
+		[TestCase(1,1)]
+		public void CheckedGetFirstDigitInNumber(int number, int expectedRes)
 		{
-			var result = GameCheckedHelper.GetFirstDigitInNumber(number);
-			Assert.AreEqual(1,result);
+			var outputResult = GameCheckedHelper.GetFirstDigitInNumber(number);
+			Assert.AreEqual(expectedRes, outputResult);
 		}
+
+		[TestCase(1, 1, 1)]
+		[TestCase(0,1000,0)]
+		[TestCase(-1, -1, 1)]
+		[TestCase(-10, 10, 100)]
+		public void MultiplyTwoNumber(int numberOne, int numberTwo, int resultMultiply)
+		{
+			var outputResult = GameCheckedHelper.MultiplyNumber(numberOne, numberTwo);
+			Assert.AreEqual(resultMultiply,outputResult);
+		}
+
 	}
 }

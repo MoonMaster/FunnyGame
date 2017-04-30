@@ -3,11 +3,12 @@ using System.Linq;
 using System.Text;
 using FunnyGame.Controller;
 using FunnyGame.Helper;
+using FunnyGame.Interface;
 using FunnyGame.Model;
 
 namespace FunnyGame.View
 {
-	public class GameViewerSequenceGame : GameViewer
+	public class GameViewerSequenceGame : GameViewer, ISequenceGame
 	{
 		
 		private readonly string[] _optionsGameMode = new[]

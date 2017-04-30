@@ -1,5 +1,6 @@
 ﻿using System;
 using FunnyGame.Controller;
+using FunnyGame.Interface;
 using FunnyGame.View;
 
 namespace FunnyGame
@@ -9,7 +10,7 @@ namespace FunnyGame
 		static void Main(string[] args)
 		{
 			GameLog.WriteMessage("The Game started");
-			GameStartViewer viewerMainOption = new GameStartViewer();
+			IGameBeginViewer viewerMainOption = new GameStartViewer();
 			GameEmulation gameEmulation = new GameEmulation();
 			viewerMainOption.WelcomeMessage();
 			
