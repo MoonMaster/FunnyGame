@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace FunnyGame.View
 {
@@ -7,10 +8,12 @@ namespace FunnyGame.View
 		protected string[] Options;
 		public virtual void ShowMenu()
 		{
-			foreach (var itemOptions in Options)
-			{
-				Console.WriteLine(itemOptions);
-			}
+			Options.ToList().ForEach(Console.WriteLine);
+		}
+
+		public virtual void ShowMessage(string message)
+		{
+			Console.WriteLine(message);
 		}
 	}
 }

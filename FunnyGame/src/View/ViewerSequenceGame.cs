@@ -10,7 +10,6 @@ namespace FunnyGame.View
 {
 	public class GameViewerSequenceGame : GameViewer, ISequenceGame
 	{
-		
 		private readonly string[] _optionsGameMode = new[]
 		{
 			"[o] - first part {1,2,3}",
@@ -19,13 +18,13 @@ namespace FunnyGame.View
 
 		public GameViewerSequenceGame()
 		{
-			base.Options = _optionsGameMode;
+			Options = _optionsGameMode;
 		}
 
 		public bool IsExit()
 		{
 			string message = "For Exit input X";
-			WriteMessage(message);
+			ShowMessage(message);
 			string checkPlayer = Console.ReadLine();
 			if (checkPlayer == null)
 				return true;
@@ -43,12 +42,12 @@ namespace FunnyGame.View
 			string playerName;
 			do
 			{
-				WriteMessage(message);
+				ShowMessage(message);
 				playerName = Console.ReadLine();
 
 				if (!GameCheckedHelper.IsValidUserName(playerName))
 				{
-					WriteMessage(errorMessage);
+					ShowMessage(errorMessage);
 				}
 			} while (!GameCheckedHelper.IsValidUserName(playerName));
 			return playerName;
@@ -61,12 +60,12 @@ namespace FunnyGame.View
 			string modeGame;
 			do
 			{
-				WriteMessage(message);
-				base.ShowMenu();
+				ShowMessage(message);
+				ShowMenu();
 				modeGame = Console.ReadLine();
 				if (!GameCheckedHelper.IsValidInputModeGame(modeGame))
 				{
-					WriteMessage(errorMessage);
+					ShowMessage(errorMessage);
 				}
 			} while (!GameCheckedHelper.IsValidInputModeGame(modeGame));
 			return modeGame == "o" ? 0 : 1;
@@ -76,7 +75,7 @@ namespace FunnyGame.View
 		public bool IsShowStatistics()
 		{
 			string message = "Show Statistics? Y or N";
-			WriteMessage(message);
+			ShowMessage(message);
 			var choiceGame = Console.ReadLine();
 			return choiceGame == "Y";
 		}
@@ -84,7 +83,7 @@ namespace FunnyGame.View
 		public int GetNumberPlayer(Player player)
 		{
 			string message = "What is your number " + player.PlayerName;
-			WriteMessage(message);
+			ShowMessage(message);
 			int playerNumber = Convert.ToInt16(Console.ReadLine());
 			return playerNumber;
 
@@ -92,13 +91,13 @@ namespace FunnyGame.View
 
 		public int MultiplyResultPlayer(Game gameUser)
 		{
-			int numberPlayer = gameUser.FirstPlayer.ConceivedNumbersPlayer.Last();
-			int numberOpposserPlayer = gameUser.SecondPlayer.ConceivedNumbersPlayer.Last();
+			int numericValueFirstPlayer = gameUser.FirstPlayer.ConceivedNumbersPlayer.Last();
+			int numericValueSecondPlayer = gameUser.SecondPlayer.ConceivedNumbersPlayer.Last();
 
-			Console.WriteLine("The number player {0} is: {1}",gameUser.FirstPlayer.PlayerName,numberPlayer);
-			Console.WriteLine("The number player {0} is: {1}", gameUser.SecondPlayer.PlayerName,numberOpposserPlayer);
+			Console.WriteLine("The number player {0} is: {1}",gameUser.FirstPlayer.PlayerName,numericValueFirstPlayer);
+			Console.WriteLine("The number player {0} is: {1}", gameUser.SecondPlayer.PlayerName,numericValueSecondPlayer);
 
-			int multiplyRes = numberOpposserPlayer*numberPlayer;
+			int multiplyRes = GameCheckedHelper.MultiplyNumber(numericValueFirstPlayer, numericValueSecondPlayer);
 
 			Console.WriteLine("Result multiply: {0}", multiplyRes);
 
@@ -130,18 +129,11 @@ namespace FunnyGame.View
 			else
 			{
 				string message = "In this round draw";
-				WriteMessage(message);
+				ShowMessage(message);
 			}
 			messageGame.Clear();
 		}
 
-		#region private method
-
-		private static void WriteMessage(string message)
-		{
-			Console.WriteLine(message);
-		}
-
-		#endregion private method
+		
 	}
 }

@@ -30,7 +30,7 @@ namespace FunnyGame.Helper
 			}
 			return result;
 		}
-
+		// The result must be positive number.
 		public static int MultiplyNumber(int num1, int num2)
 		{
 			return Math.Abs(num1*num2);

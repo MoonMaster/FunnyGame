@@ -17,13 +17,8 @@ namespace FunnyGame.View
 
 		public ConsoleKeyInfo GetChoicePlayer()
 		{
-			Console.Write("Your choice: ");
+			Console.WriteLine("Your choice: ");
 			return Console.ReadKey();
-		}
-
-		public override void ShowMenu()
-		{
-			base.ShowMenu();
 		}
 
 		public void WelcomeMessage()
