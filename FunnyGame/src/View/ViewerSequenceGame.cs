@@ -39,36 +39,38 @@ namespace FunnyGame.View
 		{
 			string message = "What is your name?";
 			string errorMessage = "Invalid player Name";
-			string playerName;
-			do
+
+			ShowMessage(message);
+
+			var playerName = Console.ReadLine();
+
+			while (!GameCheckedHelper.IsValidUserName(playerName))
 			{
+				ShowMessage(errorMessage);
 				ShowMessage(message);
 				playerName = Console.ReadLine();
+			}
 
-				if (!GameCheckedHelper.IsValidUserName(playerName))
-				{
-					ShowMessage(errorMessage);
-				}
-			} while (!GameCheckedHelper.IsValidUserName(playerName));
 			return playerName;
 		}
-		// return 0 - {1,2,3} ; 1 - {4,5,6,7,8,9}
-		public int GetCorrectModeGame()
+		public int[] GetCorrectModeGame()
 		{
 			string message = "What is choice mode game?";
 			string errorMessage = "Wrong choice mode game";
-			string modeGame;
-			do
+			
+			ShowMessage(message);
+			ShowMenu();
+
+			var modeGame = Console.ReadLine();
+
+			while (!GameCheckedHelper.IsValidInputModeGame(modeGame))
 			{
-				ShowMessage(message);
+				ShowMessage(errorMessage);
 				ShowMenu();
 				modeGame = Console.ReadLine();
-				if (!GameCheckedHelper.IsValidInputModeGame(modeGame))
-				{
-					ShowMessage(errorMessage);
-				}
-			} while (!GameCheckedHelper.IsValidInputModeGame(modeGame));
-			return modeGame == "o" ? 0 : 1;
+			}
+
+			return modeGame == "o" ? new int[] {1, 2, 3} : new int[] {4, 5, 6, 7, 8, 9};
 
 		}
 
@@ -113,15 +115,13 @@ namespace FunnyGame.View
 			{
 				if (gameUser.FirstPlayer.SetNumber.Contains(firstDigits))
 				{
-					messageGame.Append(Convert.ToString(gameUser.FirstPlayer.PlayerName));
-					messageGame.Append(" is Win");
+					messageGame.AppendFormat("{0} Win", gameUser.FirstPlayer.PlayerName);
 					GameLog.WriteMessage(messageGame.ToString());
 					Console.WriteLine("The player {0} is WIN", gameUser.FirstPlayer.PlayerName);
 				}
 				else
 				{
-					messageGame.Append(Convert.ToString(gameUser.SecondPlayer.PlayerName));
-					messageGame.Append(" is Win");
+					messageGame.AppendFormat("{0} Win", gameUser.SecondPlayer.PlayerName);
 					GameLog.WriteMessage(messageGame.ToString());
 					Console.WriteLine("The player {0} is Win", gameUser.SecondPlayer.PlayerName);
 				}
