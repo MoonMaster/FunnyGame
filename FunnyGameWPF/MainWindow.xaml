@@ -8,6 +8,7 @@
 			<RowDefinition></RowDefinition>
 		</Grid.RowDefinitions>
 		<RadioButton Name="ModeGame" Grid.Row="0" Margin="10 10 10 10">Computer Vs Human</RadioButton>
-		<Button Name="Start" Grid.Row="1" Height="50" Click="Start_Click">Start</Button>
+		<Button Name="Start" Grid.Row="1" Height="50" Click="Start_Click" Width="100" HorizontalAlignment="Left" Margin="10 0 0 0">Start</Button>
+		<Button Name="ExitGame" Grid.Row="1" Height="50" Click="ExitGame_Click" Width="100" HorizontalAlignment="Right" Margin="0 0 10 0">Exit Game</Button>
     </Grid>
 </Window>

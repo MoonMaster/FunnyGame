@@ -20,11 +20,17 @@ namespace FunnyGameWPF
 			if (ModeGame.IsChecked == true)
 			{
 				gameEmulation.Execute(new SettingGame());
+				Hide();
 			}
 			else
 			{
 				MessageBox.Show("Неверное значение", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
 			}
+		}
+		
+		private void ExitGame_Click(object sender, RoutedEventArgs e)
+		{
+			Close();
 		}
 	}
 }

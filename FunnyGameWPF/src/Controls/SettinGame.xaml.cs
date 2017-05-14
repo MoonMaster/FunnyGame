@@ -24,6 +24,7 @@ namespace FunnyGameWPF.Controls
 		private void Exit_Click(object sender, RoutedEventArgs e)
 		{
 			Close();
+			
 		}
 
 		private void StartGame_Click(object sender, RoutedEventArgs e)
