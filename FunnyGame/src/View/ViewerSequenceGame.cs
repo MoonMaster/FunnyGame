@@ -85,8 +85,14 @@ namespace FunnyGame.View
 		public int GetNumberPlayer(Player player)
 		{
 			string message = "What is your number " + player.PlayerName;
+			string errorMessage = "Input must be number";
+			int playerNumber;
 			ShowMessage(message);
-			int playerNumber = Convert.ToInt16(Console.ReadLine());
+			while (!int.TryParse(Console.ReadLine(), out playerNumber))
+			{
+				ShowMessage(errorMessage);
+				ShowMessage(message);
+			}
 			return playerNumber;
 
 		}

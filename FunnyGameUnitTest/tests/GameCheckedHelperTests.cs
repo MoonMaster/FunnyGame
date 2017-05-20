@@ -44,6 +44,7 @@ namespace FunnyGameUnitTest.tests
 		[TestCase(0,1000,0)]
 		[TestCase(-1, -1, 1)]
 		[TestCase(-10, 10, 100)]
+		[TestCase(-1,1,1)]
 		public void MultiplyTwoNumber(int numberOne, int numberTwo, int resultMultiply)
 		{
 			var outputResult = GameCheckedHelper.MultiplyNumber(numberOne, numberTwo);
