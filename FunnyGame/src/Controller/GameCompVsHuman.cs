@@ -15,9 +15,12 @@ namespace FunnyGame.Controller
 			GameViewerSequenceGame viewerGame = new GameViewerSequenceGame();
 
 			string playerName = viewerGame.GetCorrectPlayerName();
-			int[] modeGame = viewerGame.GetCorrectModeGame();
 
-			Player playerOne = new Player(playerName, modeGame);
+			Player playerOne = new Player(playerName);
+
+			int[] modeGame = viewerGame.GetCorrectModeGame(playerOne);
+
+			playerOne.SetNumber = modeGame;
 			
 			Player secondPlayer = new Player("Computer");
 

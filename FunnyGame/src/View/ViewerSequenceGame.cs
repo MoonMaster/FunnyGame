@@ -35,30 +35,42 @@ namespace FunnyGame.View
 			return true;
 		}
 
-		public string GetCorrectPlayerName()
+		public string GetCorrectPlayerName(int countPlayers = 1)
 		{
-			string message = "What is your name?";
+			StringBuilder message = new StringBuilder().Clear();
+
+			if (countPlayers == 1)
+			{
+				message.Append("The First Player. What is your Name?");
+			}
+			else if (countPlayers > 1)
+			{
+				message.Append("The Second Player. What is your Name?");
+			}
+			
 			string errorMessage = "Invalid player Name";
 
-			ShowMessage(message);
+			ShowMessage(message.ToString());
 
-			var playerName = Console.ReadLine();
+			var inputPlayerName = Console.ReadLine();
 
-			while (!GameCheckedHelper.IsValidUserName(playerName))
+			while (!GameCheckedHelper.IsValidUserName(inputPlayerName))
 			{
 				ShowMessage(errorMessage);
-				ShowMessage(message);
-				playerName = Console.ReadLine();
+				ShowMessage(message.ToString());
+				inputPlayerName = Console.ReadLine();
 			}
 
-			return playerName;
+			return inputPlayerName;
 		}
-		public int[] GetCorrectModeGame()
+		public int[] GetCorrectModeGame(Player player)
 		{
-			string message = "What is choice mode game?";
+			StringBuilder message = new StringBuilder();
 			string errorMessage = "Wrong choice mode game";
+
+			message.AppendFormat("The Player {0}. What is your choice?", player.PlayerName);
 			
-			ShowMessage(message);
+			ShowMessage(message.ToString());
 			ShowMenu();
 
 			var modeGame = Console.ReadLine();

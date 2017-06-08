@@ -9,8 +9,15 @@ namespace FunnyGameUnitTest.tests
 	[TestFixture]
 	public class ViewrSequenceGameTest
 	{
-		Player testPlayer = new Player("test", new []{1,2,3});
-		GameViewerSequenceGame testObj = new GameViewerSequenceGame();
+		private Player testPlayer;
+		private GameViewerSequenceGame testObj;
+
+		[SetUp]
+		public void init()
+		{
+			testPlayer = new Player("test", new []{1,2,3});
+			testObj = new GameViewerSequenceGame();
+		}
 
 		[TestCase("12", 12)]
 		[TestCase("100", 100)]
@@ -23,6 +30,12 @@ namespace FunnyGameUnitTest.tests
 
 			Assert.AreEqual(expectedValue,result);
 		}
- 		
+
+		[TearDown]
+		public void dispose()
+		{
+			testPlayer = null;
+			testObj = null;
+		}
 	}
 }

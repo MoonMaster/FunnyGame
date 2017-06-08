@@ -1,4 +1,5 @@
 ﻿using FunnyGame.Interface;
+using FunnyGame.View;
 
 namespace FunnyGame.Controller
 {
@@ -6,7 +7,12 @@ namespace FunnyGame.Controller
 	{
 		public void Play()
 		{
-			throw new System.NotImplementedException();
+			ISequenceGame viewerGame = new GameViewerSequenceGame();
+
+			string firstUserName = viewerGame.GetCorrectPlayerName();
+			string secondUserName = viewerGame.GetCorrectPlayerName(2);
+
+
 		}
 	}
 }
