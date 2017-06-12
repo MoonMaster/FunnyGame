@@ -24,6 +24,10 @@ namespace FunnyGame
 						GameLog.WriteMessage("Check first mode game");
 						gameEmulation.Execute(new GameCompVsHuman());
 						break;
+					case '2':
+						GameLog.WriteMessage("Check second mode game");
+						gameEmulation.Execute(new GamePersonVsPerson());
+						break;
 					default:
 						Console.WriteLine("Error"); 
 						break;

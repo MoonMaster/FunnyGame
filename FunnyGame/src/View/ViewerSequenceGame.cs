@@ -152,6 +152,11 @@ namespace FunnyGame.View
 			messageGame.Clear();
 		}
 
-		
+
+		public int[] CheckCorrectModeGame(Player player)
+		{
+			int[] arrayOnes = new[] {1, 2, 3};
+			return player.SetNumber.SequenceEqual(arrayOnes) ? new[] {4, 5, 6, 7, 8, 9} : arrayOnes;
+		}
 	}
 }

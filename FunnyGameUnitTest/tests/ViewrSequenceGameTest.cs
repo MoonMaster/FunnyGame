@@ -9,14 +9,17 @@ namespace FunnyGameUnitTest.tests
 	[TestFixture]
 	public class ViewrSequenceGameTest
 	{
-		private Player testPlayer;
-		private GameViewerSequenceGame testObj;
+		private Player _testPlayer;
+		private Player _secondTestPlayer;
+		private GameViewerSequenceGame _testObj;
+		public GameViewerSequenceGame viewer = new GameViewerSequenceGame();
 
 		[SetUp]
 		public void init()
 		{
-			testPlayer = new Player("test", new []{1,2,3});
-			testObj = new GameViewerSequenceGame();
+			_testPlayer = new Player("test", new []{1,2,3});
+			_secondTestPlayer = new Player("test2", new[] {4, 5, 6, 7, 8, 9});
+			_testObj = new GameViewerSequenceGame();
 		}
 
 		[TestCase("12", 12)]
@@ -26,16 +29,35 @@ namespace FunnyGameUnitTest.tests
 			var sr = new StringReader(inputValue);
 			Console.SetIn(sr);
 
-			int result = testObj.GetNumberPlayer(testPlayer);
+			int result = _testObj.GetNumberPlayer(_testPlayer);
 
 			Assert.AreEqual(expectedValue,result);
 		}
 
-		[TearDown]
-		public void dispose()
+		[Test]
+		public void CheckCorrectModeGame()
 		{
-			testPlayer = null;
-			testObj = null;
+			var result = viewer.CheckCorrectModeGame(_testPlayer);
+			int[] expected = new[] {4, 5, 6, 7, 8, 9};
+
+			Assert.AreEqual(expected,result);
+		}
+
+		[Test]
+		public void CheckCorrectModeGameTwo()
+		{
+			var result = viewer.CheckCorrectModeGame(_secondTestPlayer);
+			int[] expecterdResult = new[] {1, 2, 3};
+
+			Assert.AreEqual(expecterdResult,result);
+		}
+
+		[TearDown]
+		public void Dispose()
+		{
+			_testPlayer = null;
+			_secondTestPlayer = null;
+			_testObj = null;
 		}
 	}
 }

@@ -11,5 +11,6 @@ namespace FunnyGame.Interface
 		int GetNumberPlayer(Player player);
 		int MultiplyResultPlayer(Game gameUser);
 		void ShowMessageForWinRound(int firstDigits, Game gameUser);
+		int[] CheckCorrectModeGame(Player player);
 	}
 }
