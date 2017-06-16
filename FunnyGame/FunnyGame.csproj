@@ -53,11 +53,14 @@
     <Compile Include="src\Controller\GameCompVsHuman.cs" />
     <Compile Include="src\Controller\GameLog.cs" />
     <Compile Include="src\Controller\GamePersonVsPerson.cs" />
+    <Compile Include="src\Controller\GameSimulationCompVsHuman.cs" />
+    <Compile Include="src\Controller\GameSimulationPersonVsPerson.cs" />
     <Compile Include="src\Helper\GameCheckedHelper.cs" />
     <Compile Include="src\Interface\IGameBeginViewer.cs" />
     <Compile Include="src\Interface\IGameMode.cs" />
     <Compile Include="src\Interface\ISequenceGame.cs" />
     <Compile Include="src\Model\Game.cs" />
+    <Compile Include="src\Model\GameSimulationBasic.cs" />
     <Compile Include="src\Model\Player.cs" />
     <Compile Include="src\Model\Statistics.cs" />
     <Compile Include="src\View\GameViewer.cs" />
