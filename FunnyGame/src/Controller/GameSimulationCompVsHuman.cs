@@ -18,14 +18,11 @@ namespace FunnyGame.Controller
 			Statistics statistics = new Statistics();
 			do
 			{
-				int numberFirstPlayer = ViewerGame.GetNumberPlayer(GameSituation.FirstPlayer);
-				GameSituation.FirstPlayer.ConceivedNumbersPlayer.Add(numberFirstPlayer);
-				int numberSecondPlayer = rnd.Next(0, 1000);
-				GameSituation.SecondPlayer.ConceivedNumbersPlayer.Add(numberSecondPlayer);
-
-				int resultMultiply = ViewerGame.MultiplyResultPlayer(GameSituation);
-
-				var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(resultMultiply);
+				GameSituation.FirstPlayer.ConceivedNumbersPlayer.Add(ViewerGame.GetNumberPlayer(GameSituation.FirstPlayer));
+				
+				GameSituation.SecondPlayer.ConceivedNumbersPlayer.Add(rnd.Next(0,1000));
+				
+				var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(ViewerGame.MultiplyResultPlayer(GameSituation));
 
 				ViewerGame.ShowMessageForWinRound(firstDigits, GameSituation);
 				

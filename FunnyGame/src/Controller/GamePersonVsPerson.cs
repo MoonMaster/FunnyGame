@@ -24,26 +24,9 @@ namespace FunnyGame.Controller
 
 			Game game = new Game(firstPlayer,secondPlayer);
 
-			SimulationGame(game,viewerGame);
-		}
+			GameSimulationPersonVsPerson gameSimulation = new GameSimulationPersonVsPerson(game,viewerGame);
 
-
-		private void SimulationGame(Game gameUsers, ISequenceGame viewerGame)
-		{
-			do
-			{
-				gameUsers.FirstPlayer.ConceivedNumbersPlayer.Add(viewerGame.GetNumberPlayer(gameUsers.FirstPlayer));
-
-				gameUsers.SecondPlayer.ConceivedNumbersPlayer.Add(viewerGame.GetNumberPlayer(gameUsers.SecondPlayer));
-
-
-				var resultMultiply = viewerGame.MultiplyResultPlayer(gameUsers);
-
-				var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(resultMultiply);
-
-				viewerGame.ShowMessageForWinRound(firstDigits, gameUsers);
-
-			} while (viewerGame.IsExit());
+			gameSimulation.StartGame();
 		}
 	}
 }

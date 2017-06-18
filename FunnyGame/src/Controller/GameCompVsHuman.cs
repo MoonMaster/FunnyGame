@@ -28,9 +28,7 @@ namespace FunnyGame.Controller
 			GameSimulationCompVsHuman gameSimulation = new GameSimulationCompVsHuman(gamer, viewerGame);
 
 			gameSimulation.StartGame();
-
-
-
+	
 		}
 	}
 }
