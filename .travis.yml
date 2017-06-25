@@ -1,3 +1,7 @@
 language: csharp
 mono: none
-solution: /FunnyGame/FunnyGame.sln
+solution: "./FunnyGame/FunnyGame.sln"
+install:
+- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./FunnyGame/FunnyGame.sln
+script:
+- xbuild ./FunnyGame/FunnyGame.sln
