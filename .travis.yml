@@ -1,4 +1,3 @@
 language: csharp
-sudo: required
 mono: none
 solution: "./FunnyGame/FunnyGame.sln"
