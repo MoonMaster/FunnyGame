@@ -1,3 +1,3 @@
 language: csharp
 mono: none
-solution: FunnyGame/FunnyGame.sln
+solution: FunnyGame.sln
