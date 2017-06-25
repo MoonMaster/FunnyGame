@@ -3,4 +3,4 @@ sudo: false
 mono: none
 solution: "./FunnyGame/FunnyGame.sln"
 install:
-  - nuget restore ./FunnyGame/FunnyGame.sln
+- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./FunnyGame/FunnyGame.sln
