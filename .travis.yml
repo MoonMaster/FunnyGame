@@ -1,3 +1,5 @@
 language: csharp
 mono: none
 solution: "./FunnyGame/FunnyGame.sln"
+script:
+- xbuild ./FunnyGame/FunnyGame.sln
