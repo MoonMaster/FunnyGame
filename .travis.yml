@@ -1,6 +1,6 @@
 language: csharp
 solution: ./FunnyGame/FunnyGame.sln
-
+mono: none
 install:
   - sudo apt-get install nunit-console
   - nuget restore ./FunnyGame/FunnyGame.sln
