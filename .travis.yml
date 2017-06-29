@@ -2,4 +2,4 @@
 solution: ./FunnyGame/FunnyGame.sln
 mono: none
 script:
-  - xbuild ./FunnyGame/FunnyGame.sln /t:Rebuild /p:Configuration=Release /p:Platform="Any CPU"
+  - xbuild ./FunnyGame/FunnyGame.sln
