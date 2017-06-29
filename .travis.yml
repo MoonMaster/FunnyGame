@@ -1,5 +1,5 @@
-﻿language: csharp
+language: csharp
 solution: ./FunnyGame/FunnyGame.sln
 mono: none
 script:
-  - xbuild ./FunnyGame/FunnyGame.sln
+  - xbuild ./FunnyGame/FunnyGame.csproj
