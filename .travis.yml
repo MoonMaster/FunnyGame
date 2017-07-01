@@ -1,5 +1,14 @@
+sudo: required
+dist: trusty
 language: csharp
 solution: ./FunnyGame/FunnyGame.sln
-mono: none
+mono:
+  - beta
+dotnet: 1.0.3
+
+install:
+  - nuget restore ./FunnyGame/FunnyGame.sln
+  - dotnet restore ./FunnyGame/FunnyGame.sln
+
 script:
-  - xbuild ./FunnyGame/FunnyGame.csproj
+  - msbuild ./FunnyGame/FunnyGame.sln /p:Configuration="Release" /p:Platform="Any CPU"
