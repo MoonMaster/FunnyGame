@@ -1,7 +1,5 @@
 sudo: required
 language: csharp
 solution: ./FunnyGame/FunnyGame.sln
-install:
-  - nuget restore ./FunnyGame/packages.config -SolutionDirectory ./FunnyGame/FunnyGame.sln -Verbosity detailed
 script:
   - msbuild ./FunnyGame/FunnyGame.sln /p:Configuration="Release" /p:Platform="Any CPU"
