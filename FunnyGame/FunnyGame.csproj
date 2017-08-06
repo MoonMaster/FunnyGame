@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="FunnyGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Controller\GameCompVsComp.cs" />
     <Compile Include="src\Controller\GameEmulation.cs" />
     <Compile Include="src\Controller\GameCompVsHuman.cs" />
     <Compile Include="src\Controller\GameLog.cs" />
@@ -61,7 +60,7 @@
     <Compile Include="src\Interface\IGameMode.cs" />
     <Compile Include="src\Interface\ISequenceGame.cs" />
     <Compile Include="src\Model\Game.cs" />
-    <Compile Include="src\Model\GameSimulationBasic.cs" />
+    <Compile Include="src\Controller\GameSimulationBasic.cs" />
     <Compile Include="src\Model\Player.cs" />
     <Compile Include="src\Model\Statistics.cs" />
     <Compile Include="src\View\GameViewer.cs" />
