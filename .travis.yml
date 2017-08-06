@@ -4,4 +4,4 @@ solution: ./FunnyGame/FunnyGame.sln
 install:
   - nuget restore ./FunnyGame/FunnyGame.sln
 script:
-  - msbuild /p:Configuration=Release /v:minimal /clp:Summary /p:Platform="Any CPU" ./FunnyGame/FunnyGame.sln
+  - msbuild /p:Configuration=Release /p:Platform="Any CPU" ./FunnyGame/FunnyGame.sln
