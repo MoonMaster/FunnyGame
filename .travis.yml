@@ -2,4 +2,4 @@ sudo: required
 language: csharp
 solution: ./FunnyGame/FunnyGame.sln
 script:
-  - msbuild ./FunnyGame/FunnyGame.sln /p:Configuration="Release" /p:Platform="Any CPU"
+  - msbuild /p:Configuration=Release /v:minimal /clp:Summary /p:Platform="Any CPU" ./FunnyGame/FunnyGame.sln
