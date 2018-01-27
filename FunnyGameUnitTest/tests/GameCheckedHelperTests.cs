@@ -51,5 +51,12 @@ namespace FunnyGameUnitTest.tests
 			Assert.AreEqual(resultMultiply,outputResult);
 		}
 
+        [TestCase(1,1,1)]
+        public void AMultiplyTwoNumber(int num1, int num2, int num3)
+        {
+            var outputResult = GameCheckedHelper.MultiplyNumber(num1, num2);
+            Assert.AreEqual(outputResult, 1);
+        }
+
 	}
 }
