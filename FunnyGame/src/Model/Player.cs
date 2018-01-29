@@ -5,19 +5,23 @@ namespace FunnyGame.Model
 	public class Player
 	{
 		public string PlayerName { get; set; }
-		public int[] SetNumber { get; set; }
+		private int[] SetNumber
+        {
+            get;set;
+           
+        }
 		public  List<int> ConceivedNumbersPlayer { get; set; } 
 
 		public Player(string playerName, int[] setNumber)
 		{
 			PlayerName = playerName;
-			SetNumber = setNumber;
+			this.SetNumber = setNumber;
 			ConceivedNumbersPlayer = new List<int>();
 		}
-		public Player(string playerName)
-		{
-			PlayerName = playerName;
-			ConceivedNumbersPlayer = new List<int>();
-		}
+
+        public int[] GetSetNumber()
+        {
+            return this.SetNumber;
+        }
 	}
 }

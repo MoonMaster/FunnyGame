@@ -63,12 +63,12 @@ namespace FunnyGame.View
 
 			return inputPlayerName;
 		}
-		public int[] GetCorrectModeGame(Player player)
+		public int[] GetCorrectModeGame(string playerName)
 		{
 			StringBuilder message = new StringBuilder();
 			string errorMessage = "Wrong choice mode game";
 
-			message.AppendFormat("The Player {0}. What is your choice?", player.PlayerName);
+			message.AppendFormat("The Player {0}. What is your choice?", playerName);
 			
 			ShowMessage(message.ToString());
 			ShowMenu();
@@ -131,7 +131,8 @@ namespace FunnyGame.View
 			StringBuilder messageGame = new StringBuilder("The player is ");
 			if (firstDigits != 0)
 			{
-				if (gameUser.FirstPlayer.SetNumber.Contains(firstDigits))
+                
+				if (gameUser.FirstPlayer.GetSetNumber().Contains(firstDigits))
 				{
 					messageGame.AppendFormat("{0} Win", gameUser.FirstPlayer.PlayerName);
 					GameLog.WriteMessage(messageGame.ToString());
@@ -156,7 +157,7 @@ namespace FunnyGame.View
 		public int[] CheckCorrectModeGame(Player player)
 		{
 			int[] arrayOnes = new[] {1, 2, 3};
-			return player.SetNumber.SequenceEqual(arrayOnes) ? new[] {4, 5, 6, 7, 8, 9} : arrayOnes;
+			return player.GetSetNumber().SequenceEqual(arrayOnes) ? new[] {4, 5, 6, 7, 8, 9} : arrayOnes;
 		}
 	}
 }

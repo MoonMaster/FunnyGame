@@ -2,6 +2,7 @@
 using FunnyGame.Interface;
 using FunnyGame.Model;
 using FunnyGame.View;
+using System.Linq;
 
 namespace FunnyGame.Controller
 {
@@ -9,26 +10,29 @@ namespace FunnyGame.Controller
 	{
 		public void Play()
 		{
-			ISequenceGame viewerGame = new GameViewerSequenceGame();
+            ISequenceGame viewerGame = new GameViewerSequenceGame();
 
-			string firstUserName = viewerGame.GetCorrectPlayerName();
-			string secondUserName = viewerGame.GetCorrectPlayerName(2);
+            string firstUserName = viewerGame.GetCorrectPlayerName();
+            string secondUserName = viewerGame.GetCorrectPlayerName(2);
 
-			Player firstPlayer = new Player(firstUserName);
-			Player secondPlayer = new Player(secondUserName);
+            int[] modeGame = viewerGame.GetCorrectModeGame(firstUserName);
 
-			int[] modeGame = viewerGame.GetCorrectModeGame(firstPlayer);
-			firstPlayer.SetNumber = modeGame;
+            int[] modeGameSecondPlayer = CheckChoicePlayer(modeGame);
 
-			secondPlayer.SetNumber = viewerGame.CheckCorrectModeGame(firstPlayer);
+            Player firstPlayer = new Player(firstUserName, modeGame);
+            Player secondPlayer = new Player(secondUserName, modeGameSecondPlayer);
 
-			Game game = new Game(firstPlayer,secondPlayer);
+            Game game = new Game(firstPlayer, secondPlayer);
 
-			SimulationGame(game,viewerGame);
-		}
+            SimulationGame(game, viewerGame);
+        }
 
+        private int[] CheckChoicePlayer(int[] modeGame)
+        {
+            return modeGame.Contains(1) ? new int[] { 4, 5, 6, 7, 8, 9 } : new int[] { 1, 2, 3 };
+        }
 
-		private void SimulationGame(Game gameUsers, ISequenceGame viewerGame)
+        private void SimulationGame(Game gameUsers, ISequenceGame viewerGame)
 		{
 			do
 			{
