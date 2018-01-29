@@ -36,7 +36,7 @@ namespace FunnyGameWPF.Controls
 				InputUserName.Text = string.Empty;
 			}
 			Player playerOne = new Player(userName, OmodeGame.IsChecked == true ? new int[] {1, 2, 3} : new[] {4, 5, 6, 7, 8, 9});
-			Player playerTwo = new Player("Computer");
+			Player playerTwo = new Player("Computer",new[] { 1, 2, 3 });
 
 			Game gameSimulation = new Game(playerOne, playerTwo);
 

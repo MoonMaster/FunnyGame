@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FunnyGame.Helper;
 using FunnyGame.Interface;
 using FunnyGame.Model;
@@ -10,30 +11,40 @@ namespace FunnyGame.Controller
 	{
 		private static Random rnd = new Random();
 
-		public void Play()
-		{
-			GameViewerSequenceGame viewerGame = new GameViewerSequenceGame();
+        #region public 
+
+        /// <summary>
+        /// The main function for play game 
+        /// </summary>
+
+        public void Play()
+        {
+            ISequenceGame viewerGame = new GameViewerSequenceGame();
 
 			string playerName = viewerGame.GetCorrectPlayerName();
 
-			Player playerOne = new Player(playerName);
+			int[] modeGame = viewerGame.GetCorrectModeGame(playerName);
 
-			int[] modeGame = viewerGame.GetCorrectModeGame(playerOne);
+            Player firstPlayer = new Player(playerName, modeGame);
 
-			playerOne.SetNumber = modeGame;
-			
-			Player secondPlayer = new Player("Computer");
+			Player secondPlayer = new Player("Computer",CheckChoicePlayer(modeGame));
 
-			Game gamer = new Game(playerOne, secondPlayer);
+			Game gamer = new Game(firstPlayer, secondPlayer);
 			
-			SimulationGame(gamer, viewerGame);
-			
-			
+			SimulationGame(gamer, viewerGame);		
 
 		}
-		#region Private Region
 
-		private void SimulationGame(Game gameUser, GameViewerSequenceGame viewerGame)
+        #endregion Public
+
+        #region Private Region
+
+        private int[] CheckChoicePlayer(int[] modeGame)
+        {
+            return modeGame.Contains(1) ? new int [] { 4, 5, 6, 7, 8, 9 } : new int[] { 1, 2, 3 };
+        }
+
+        private void SimulationGame(Game gameUser, ISequenceGame viewerGame)
 		{
 			Statistics statistics = new Statistics();
 			do
