@@ -1,9 +1,0 @@
-C:\Programm\FunnyGame\FunnyGame\bin\Release\NLog.config
-C:\Programm\FunnyGame\FunnyGame\bin\Release\FunnyGame.exe.config
-C:\Programm\FunnyGame\FunnyGame\bin\Release\FunnyGame.exe
-C:\Programm\FunnyGame\FunnyGame\bin\Release\FunnyGame.pdb
-C:\Programm\FunnyGame\FunnyGame\bin\Release\NLog.dll
-C:\Programm\FunnyGame\FunnyGame\bin\Release\NLog.xml
-C:\Programm\FunnyGame\FunnyGame\obj\Release\FunnyGame.exe
-C:\Programm\FunnyGame\FunnyGame\obj\Release\FunnyGame.pdb
-C:\Programm\FunnyGame\FunnyGame\obj\Release\FunnyGame.csprojResolveAssemblyReference.cache
