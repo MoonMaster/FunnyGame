@@ -11,23 +11,23 @@ namespace FunnyGame.Controller
 
 		public void Play()
 		{
-			GameViewerSequenceGame viewerGame = new GameViewerSequenceGame();
+			//GameViewerSequenceGame viewerGame = new GameViewerSequenceGame();
 
-			string playerName = viewerGame.GetCorrectPlayerName();
+			//string playerName = viewerGame.GetCorrectPlayerName();
 
-			Player playerOne = new Player(playerName);
+			//Player playerOne = new Player(playerName);
 
-			int[] modeGame = viewerGame.GetCorrectModeGame(playerOne);
+			//int[] modeGame = viewerGame.GetCorrectModeGame(playerOne);
 
-			playerOne.SetNumber = modeGame;
+			////playerOne.SetNumber = modeGame;
 
-			Player secondPlayer = new Player("Computer");
+			//Player secondPlayer = new Player("Computer");
 
-			Game gamer = new Game(playerOne, secondPlayer);
+			//Game gamer = new Game(playerOne, secondPlayer);
 
-			GameSimulationCompVsHuman gameSimulation = new GameSimulationCompVsHuman(gamer, viewerGame);
+			//GameSimulationCompVsHuman gameSimulation = new GameSimulationCompVsHuman(gamer, viewerGame);
 
-			gameSimulation.StartGame();
+			//gameSimulation.StartGame();
 	
 		}
 	}

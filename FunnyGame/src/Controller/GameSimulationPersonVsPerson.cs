@@ -1,5 +1,4 @@
-﻿using FunnyGame.Helper;
-using FunnyGame.Interface;
+﻿using FunnyGame.Interface;
 using FunnyGame.Model;
 
 namespace FunnyGame.Controller
@@ -12,20 +11,20 @@ namespace FunnyGame.Controller
 
 		public override void StartGame()
 		{
-			do
-			{
+			//do
+			//{
 				
-				GameSituation.FirstPlayer.ConceivedNumbersPlayer.Add(ViewerGame.GetNumberPlayer(GameSituation.FirstPlayer));
+			//	GameSituation.FirstPlayer.ConceivedNumbersPlayer.Add(ViewerGame.GetNumberPlayer(GameSituation.FirstPlayer));
 
-				GameSituation.SecondPlayer.ConceivedNumbersPlayer.Add(ViewerGame.GetNumberPlayer(GameSituation.SecondPlayer));
+			//	GameSituation.SecondPlayer.ConceivedNumbersPlayer.Add(ViewerGame.GetNumberPlayer(GameSituation.SecondPlayer));
 
-				var resultMultiply = ViewerGame.MultiplyResultPlayer(GameSituation);
+			//	var resultMultiply = ViewerGame.MultiplyResultPlayer(GameSituation);
 
-				var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(resultMultiply);
+			//	var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(resultMultiply);
 
-				ViewerGame.ShowMessageForWinRound(firstDigits, GameSituation);
+			//	ViewerGame.ShowMessageForWinRound(firstDigits, GameSituation);
 
-			} while (ViewerGame.IsExit());
+			//} while (ViewerGame.IsExit());
 		}
 	}
 }

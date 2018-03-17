@@ -1,5 +1,4 @@
-﻿using FunnyGame.Helper;
-using FunnyGame.Interface;
+﻿using FunnyGame.Interface;
 using FunnyGame.Model;
 using FunnyGame.View;
 
@@ -9,24 +8,24 @@ namespace FunnyGame.Controller
 	{
 		public void Play()
 		{
-			ISequenceGame viewerGame = new GameViewerSequenceGame();
+			//ISequenceGame viewerGame = new GameViewerSequenceGame();
 
-			string firstUserName = viewerGame.GetCorrectPlayerName();
-			string secondUserName = viewerGame.GetCorrectPlayerName(2);
+			//string firstUserName = viewerGame.GetCorrectPlayerName();
+			//string secondUserName = viewerGame.GetCorrectPlayerName(2);
 
-			Player firstPlayer = new Player(firstUserName);
-			Player secondPlayer = new Player(secondUserName);
+			//Player firstPlayer = new Player(firstUserName);
+			//Player secondPlayer = new Player(secondUserName);
 
-			int[] modeGame = viewerGame.GetCorrectModeGame(firstPlayer);
-			firstPlayer.SetNumber = modeGame;
+			//int[] modeGame = viewerGame.GetCorrectModeGame(firstPlayer);
+			//firstPlayer.SetNumber = modeGame;
 
-			secondPlayer.SetNumber = viewerGame.CheckCorrectModeGame(firstPlayer);
+			//secondPlayer.SetNumber = viewerGame.CheckCorrectModeGame(firstPlayer);
 
-			Game game = new Game(firstPlayer,secondPlayer);
+			//Game game = new Game(firstPlayer,secondPlayer);
 
-			GameSimulationPersonVsPerson gameSimulation = new GameSimulationPersonVsPerson(game,viewerGame);
+			//GameSimulationPersonVsPerson gameSimulation = new GameSimulationPersonVsPerson(game,viewerGame);
 
-			gameSimulation.StartGame();
+			//gameSimulation.StartGame();
 		}
 	}
 }

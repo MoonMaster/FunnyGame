@@ -1,5 +1,4 @@
 ﻿using System;
-using FunnyGame.Helper;
 using FunnyGame.Model;
 using FunnyGame.View;
 
@@ -15,25 +14,25 @@ namespace FunnyGame.Controller
 
 		public override void StartGame()
 		{
-			Statistics statistics = new Statistics();
-			do
-			{
-				GameSituation.FirstPlayer.ConceivedNumbersPlayer.Add(ViewerGame.GetNumberPlayer(GameSituation.FirstPlayer));
+			//Statistics statistics = new Statistics();
+			//do
+			//{
+			//	GameSituation.FirstPlayer.ConceivedNumbersPlayer.Add(ViewerGame.GetNumberPlayer(GameSituation.FirstPlayer));
 				
-				GameSituation.SecondPlayer.ConceivedNumbersPlayer.Add(rnd.Next(0,1000));
+			//	GameSituation.SecondPlayer.ConceivedNumbersPlayer.Add(rnd.Next(0,1000));
 				
-				var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(ViewerGame.MultiplyResultPlayer(GameSituation));
+			//	var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(ViewerGame.MultiplyResultPlayer(GameSituation));
 
-				ViewerGame.ShowMessageForWinRound(firstDigits, GameSituation);
+			//	ViewerGame.ShowMessageForWinRound(firstDigits, GameSituation);
 				
-				statistics.SetStatistics(firstDigits);
+			//	statistics.SetStatistics(firstDigits);
 
-				if (ViewerGame.IsShowStatistics())
-				{
-					statistics.ShowStatistics();
-				}
+			//	if (ViewerGame.IsShowStatistics())
+			//	{
+			//		statistics.ShowStatistics();
+			//	}
 
-			} while (ViewerGame.IsExit());
+			//} while (ViewerGame.IsExit());
 		}
 	}
 }
