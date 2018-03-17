@@ -75,6 +75,7 @@ artifacts/
 *.obj
 *.pch
 *.pdb
+!NUnit3.TestAdapter.pdb
 *.pgc
 *.pgd
 *.rsp
