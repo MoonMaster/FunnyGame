@@ -6,7 +6,7 @@ namespace FunnyGame.Interface
 	{
 		bool IsExit();
 		string GetCorrectPlayerName(int countPlayers = 1);
-		int[] GetCorrectModeGame(Player player);
+		int[] GetCorrectModeGame(string player);
 		bool IsShowStatistics();
 		int GetNumberPlayer(Player player);
 		int MultiplyResultPlayer(Game gameUser);

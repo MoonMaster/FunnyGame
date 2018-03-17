@@ -1,0 +1,5 @@
+2017-08-06 12:54:32.6591|INFO|FunnyGame|The Game started
+2017-08-06 12:54:33.7043|INFO|FunnyGame|Check first mode game
+2017-08-06 13:31:31.0207|INFO|FunnyGame|The Game started
+2017-08-06 14:06:42.9463|INFO|FunnyGame|The Game started
+2017-08-06 14:27:13.1177|INFO|FunnyGame|The Game started

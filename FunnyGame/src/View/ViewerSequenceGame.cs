@@ -62,12 +62,12 @@ namespace FunnyGame.View
 
 			return inputPlayerName;
 		}
-		public int[] GetCorrectModeGame(Player player)
+		public int[] GetCorrectModeGame(string playerName)
 		{
 			StringBuilder message = new StringBuilder();
 			string errorMessage = "Wrong choice mode game";
 
-			message.AppendFormat("The Player {0}. What is your choice?", player.PlayerName);
+			message.AppendFormat("The Player {0}. What is your choice?", playerName);
 			
 			ShowMessage(message.ToString());
 			ShowMenu();

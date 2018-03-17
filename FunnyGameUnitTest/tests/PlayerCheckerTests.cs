@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-using FunnyGame.Model;
+﻿using FunnyGame.Model;
+using NUnit.Framework;
 
 namespace FunnyGameUnitTest.tests
 {
