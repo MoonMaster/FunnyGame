@@ -40,7 +40,7 @@ namespace FunnyGameWPF.Controls
 			{
 				MessageBox.Show("Draw", "Result Game", MessageBoxButton.OK, MessageBoxImage.Information);
 			}
-			else if (Gamer.FirstPlayer.SetNumber.Contains(multiplyResult))
+			else if (Gamer.FirstPlayer.GetSetNumber().Contains(multiplyResult))
 			{
 				StringBuilder str = new StringBuilder("The Gamer ");
 				str.Append(Gamer.FirstPlayer.PlayerName);
