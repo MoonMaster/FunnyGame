@@ -5,7 +5,7 @@ namespace FunnyGame.Interface
 	public interface ISequenceGame
 	{
 		bool IsExit();
-		string GetCorrectPlayerName(int countPlayers = 1);
+        string GetPlayerName();
 		int[] GetCorrectModeGame(string player);
 		bool IsShowStatistics();
 		int GetNumberPlayer(Player player);

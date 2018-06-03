@@ -32,6 +32,23 @@ namespace FunnyGameUnitTest.tests
 			Assert.False(checker.CheckPlayerName(inputStr));
 		}
 
-		//TODO check mode game
+		[TestCase("e")]
+        [TestCase("o")]
+        public void Input_WhenUserValidValue_successfully(string userModeGaem)
+        {
+            PlayerChecker checker = new PlayerChecker();
+
+            Assert.IsTrue(checker.CheckModeGame(userModeGaem));
+        }
+
+        [TestCase("aaa")]
+        [TestCase("eee")]
+        [TestCase("ooo")]
+        public void Input_WhenUserUnvalidValue_unsuccessfully(string userModeGame)
+        {
+            PlayerChecker checker = new PlayerChecker();
+
+            Assert.IsFalse(checker.CheckModeGame(userModeGame));
+        }
 	}
 }

@@ -34,33 +34,18 @@ namespace FunnyGame.View
 			return true;
 		}
 
-		public string GetCorrectPlayerName(int countPlayers = 1)
+		public string GetPlayerName()
 		{
-			StringBuilder message = new StringBuilder().Clear();
+            PlayerChecker checker = new PlayerChecker();
+            
+            Console.WriteLine("What is your Player name in Game?");
 
-			if (countPlayers == 1)
-			{
-				message.Append("The First Player. What is your Name?");
-			}
-			else if (countPlayers > 1)
-			{
-				message.Append("The Second Player. What is your Name?");
-			}
-			
-			string errorMessage = "Invalid player Name";
+            string answerUser = Console.ReadLine();
 
-			ShowMessage(message.ToString());
+            if (!checker.CheckPlayerName(answerUser))
+                throw new ArgumentException("Not wrong name");
 
-			var inputPlayerName = Console.ReadLine();
-
-			//while (!GameCheckedHelper.IsValidUserName(inputPlayerName))
-			//{
-			//	ShowMessage(errorMessage);
-			//	ShowMessage(message.ToString());
-				inputPlayerName = Console.ReadLine();
-			//}
-
-			return inputPlayerName;
+            return answerUser;
 		}
 		public int[] GetCorrectModeGame(string playerName)
 		{

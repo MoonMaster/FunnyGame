@@ -10,7 +10,7 @@ namespace FunnyGame.Model
 
 		public bool CheckPlayerName (string userName)
 		{
-			Regex regexp = new Regex(this.patternUserName);
+            Regex regexp = new Regex(this.patternUserName);
 
 			return regexp.Match(userName.Trim()).Success;
 
