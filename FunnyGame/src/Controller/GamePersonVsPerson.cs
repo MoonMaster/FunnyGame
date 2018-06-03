@@ -1,8 +1,6 @@
-﻿using FunnyGame.Helper;
-using FunnyGame.Interface;
+﻿using FunnyGame.Interface;
 using FunnyGame.Model;
 using FunnyGame.View;
-using System.Linq;
 
 namespace FunnyGame.Controller
 {
@@ -10,44 +8,24 @@ namespace FunnyGame.Controller
 	{
 		public void Play()
 		{
-            ISequenceGame viewerGame = new GameViewerSequenceGame();
+			//ISequenceGame viewerGame = new GameViewerSequenceGame();
 
-            string firstUserName = viewerGame.GetCorrectPlayerName();
-            string secondUserName = viewerGame.GetCorrectPlayerName(2);
+			//string firstUserName = viewerGame.GetCorrectPlayerName();
+			//string secondUserName = viewerGame.GetCorrectPlayerName(2);
 
-            int[] modeGame = viewerGame.GetCorrectModeGame(firstUserName);
+			//Player firstPlayer = new Player(firstUserName);
+			//Player secondPlayer = new Player(secondUserName);
 
-            int[] modeGameSecondPlayer = CheckChoicePlayer(modeGame);
+			//int[] modeGame = viewerGame.GetCorrectModeGame(firstPlayer);
+			//firstPlayer.SetNumber = modeGame;
 
-            Player firstPlayer = new Player(firstUserName, modeGame);
-            Player secondPlayer = new Player(secondUserName, modeGameSecondPlayer);
+			//secondPlayer.SetNumber = viewerGame.CheckCorrectModeGame(firstPlayer);
 
-            Game game = new Game(firstPlayer, secondPlayer);
+			//Game game = new Game(firstPlayer,secondPlayer);
 
-            SimulationGame(game, viewerGame);
-        }
+			//GameSimulationPersonVsPerson gameSimulation = new GameSimulationPersonVsPerson(game,viewerGame);
 
-        private int[] CheckChoicePlayer(int[] modeGame)
-        {
-            return modeGame.Contains(1) ? new int[] { 4, 5, 6, 7, 8, 9 } : new int[] { 1, 2, 3 };
-        }
-
-        private void SimulationGame(Game gameUsers, ISequenceGame viewerGame)
-		{
-			do
-			{
-				gameUsers.FirstPlayer.ConceivedNumbersPlayer.Add(viewerGame.GetNumberPlayer(gameUsers.FirstPlayer));
-
-				gameUsers.SecondPlayer.ConceivedNumbersPlayer.Add(viewerGame.GetNumberPlayer(gameUsers.SecondPlayer));
-
-
-				var resultMultiply = viewerGame.MultiplyResultPlayer(gameUsers);
-
-				var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(resultMultiply);
-
-				viewerGame.ShowMessageForWinRound(firstDigits, gameUsers);
-
-			} while (viewerGame.IsExit());
+			//gameSimulation.StartGame();
 		}
 	}
 }

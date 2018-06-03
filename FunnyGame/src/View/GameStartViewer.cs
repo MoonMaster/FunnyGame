@@ -8,6 +8,7 @@ namespace FunnyGame.View
 		private readonly string[] _optionsGame = new[]
 		{
 			"1. Start the game in the player against the computer mode",
+			"2. Start the game in the player against the player mode",
 			"esc. For exit"
 		};
 		public GameStartViewer()

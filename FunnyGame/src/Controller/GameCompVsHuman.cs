@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using FunnyGame.Helper;
 using FunnyGame.Interface;
 using FunnyGame.Model;
 using FunnyGame.View;
@@ -11,65 +9,26 @@ namespace FunnyGame.Controller
 	{
 		private static Random rnd = new Random();
 
-        #region public 
-
-        /// <summary>
-        /// The main function for play game 
-        /// </summary>
-
-        public void Play()
-        {
-            ISequenceGame viewerGame = new GameViewerSequenceGame();
-
-			string playerName = viewerGame.GetCorrectPlayerName();
-
-			int[] modeGame = viewerGame.GetCorrectModeGame(playerName);
-
-            Player firstPlayer = new Player(playerName, modeGame);
-
-			Player secondPlayer = new Player("Computer",CheckChoicePlayer(modeGame));
-
-			Game gamer = new Game(firstPlayer, secondPlayer);
-			
-			SimulationGame(gamer, viewerGame);		
-
-		}
-
-        #endregion Public
-
-        #region Private Region
-
-        private int[] CheckChoicePlayer(int[] modeGame)
-        {
-            return modeGame.Contains(1) ? new int [] { 4, 5, 6, 7, 8, 9 } : new int[] { 1, 2, 3 };
-        }
-
-        private void SimulationGame(Game gameUser, ISequenceGame viewerGame)
+		public void Play()
 		{
-			Statistics statistics = new Statistics();
-			do
-			{
-				int playerNumer = viewerGame.GetNumberPlayer(gameUser.FirstPlayer);
-				gameUser.FirstPlayer.ConceivedNumbersPlayer.Add(playerNumer);
-				int opponentPlayerNumber = rnd.Next(0, 100);
-				gameUser.SecondPlayer.ConceivedNumbersPlayer.Add(opponentPlayerNumber);
+			//GameViewerSequenceGame viewerGame = new GameViewerSequenceGame();
 
-				var resultMultiply = viewerGame.MultiplyResultPlayer(gameUser);
+			//string playerName = viewerGame.GetCorrectPlayerName();
 
-				var firstDigits = GameCheckedHelper.GetFirstDigitInNumber(resultMultiply);
+			//Player playerOne = new Player(playerName);
 
-				viewerGame.ShowMessageForWinRound(firstDigits, gameUser);
+			//int[] modeGame = viewerGame.GetCorrectModeGame(playerOne);
 
-				statistics.SetStatistics(firstDigits);
+			////playerOne.SetNumber = modeGame;
 
-				if (viewerGame.IsShowStatistics())
-				{
-					statistics.ShowStatistics();
-				}
+			//Player secondPlayer = new Player("Computer");
 
-			} while (viewerGame.IsExit());
+			//Game gamer = new Game(playerOne, secondPlayer);
+
+			//GameSimulationCompVsHuman gameSimulation = new GameSimulationCompVsHuman(gamer, viewerGame);
+
+			//gameSimulation.StartGame();
+	
 		}
-
-		#endregion Private Region
 	}
 }

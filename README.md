@@ -1,4 +1,4 @@
-<h1> Funny Game </h1>
+<h1> Funny Game </h1> <img src="https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true" alt="Project Badge" width="300">
 
 This game is designed to verify the correctness of the approval of the law of Bonford (https://en.wikipedia.org/wiki/Benford's_law). This law states that the probability that the number will start at the digit 1,2 or 3 is much larger than the appearance of other figures.
 

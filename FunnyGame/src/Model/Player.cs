@@ -4,24 +4,40 @@ namespace FunnyGame.Model
 {
 	public class Player
 	{
-		public string PlayerName { get; set; }
-		private int[] SetNumber
-        {
-            get;set;
-           
-        }
-		public  List<int> ConceivedNumbersPlayer { get; set; } 
+		/// <summary>
+		/// Player name of user
+		/// </summary>
+		private string _playerName;
+		/// <summary>
+		/// How number choice player
+		/// </summary>
+		private bool _isOddestNumber;
 
-		public Player(string playerName, int[] setNumber)
+		public string PlayerName
 		{
-			PlayerName = playerName;
-			this.SetNumber = setNumber;
-			ConceivedNumbersPlayer = new List<int>();
+			get
+			{
+				return _playerName;
+			}
 		}
 
-        public int[] GetSetNumber()
-        {
-            return this.SetNumber;
-        }
+		public bool IsOddestNumber
+		{
+			get
+			{
+				return _isOddestNumber;
+			}
+			set
+			{
+				this._isOddestNumber = value;
+			}
+		}
+
+		public Player(string playerName)
+		{
+			_playerName = playerName;
+		}
+
+		
 	}
 }

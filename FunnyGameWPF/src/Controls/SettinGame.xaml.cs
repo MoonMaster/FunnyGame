@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using FunnyGame.Helper;
 using FunnyGame.Interface;
 using FunnyGame.Model;
 
@@ -29,18 +28,18 @@ namespace FunnyGameWPF.Controls
 
 		private void StartGame_Click(object sender, RoutedEventArgs e)
 		{
-			var userName = InputUserName.Text;
-			if (!GameCheckedHelper.IsValidUserName(userName))
-			{
-				MessageBox.Show("Неверное значение", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-				InputUserName.Text = string.Empty;
-			}
-			Player playerOne = new Player(userName, OmodeGame.IsChecked == true ? new int[] {1, 2, 3} : new[] {4, 5, 6, 7, 8, 9});
-			Player playerTwo = new Player("Computer",new[] { 1, 2, 3 });
+			//var userName = InputUserName.Text;
+			//if (!GameCheckedHelper.IsValidUserName(userName))
+			//{
+			//	MessageBox.Show("Неверное значение", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+			//	InputUserName.Text = string.Empty;
+			//}
+			//Player playerOne = new Player(userName, OmodeGame.IsChecked == true ? new int[] {1, 2, 3} : new[] {4, 5, 6, 7, 8, 9});
+			//Player playerTwo = new Player("Computer");
 
-			Game gameSimulation = new Game(playerOne, playerTwo);
+			//Game gameSimulation = new Game(playerOne, playerTwo);
 
-			GameSimulation simulation = new GameSimulation(gameSimulation);
+			//GameSimulation simulation = new GameSimulation(gameSimulation);
 		}
 	}
 }

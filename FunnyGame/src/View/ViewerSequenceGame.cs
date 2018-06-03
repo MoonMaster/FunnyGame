@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Text;
 using FunnyGame.Controller;
-using FunnyGame.Helper;
 using FunnyGame.Interface;
 using FunnyGame.Model;
 
@@ -35,33 +34,18 @@ namespace FunnyGame.View
 			return true;
 		}
 
-		public string GetCorrectPlayerName(int countPlayers = 1)
+		public string GetPlayerName()
 		{
-			StringBuilder message = new StringBuilder().Clear();
+            PlayerChecker checker = new PlayerChecker();
+            
+            Console.WriteLine("What is your Player name in Game?");
 
-			if (countPlayers == 1)
-			{
-				message.Append("The First Player. What is your Name?");
-			}
-			else if (countPlayers > 1)
-			{
-				message.Append("The Second Player. What is your Name?");
-			}
-			
-			string errorMessage = "Invalid player Name";
+            string answerUser = Console.ReadLine();
 
-			ShowMessage(message.ToString());
+            if (!checker.CheckPlayerName(answerUser))
+                throw new ArgumentException("Not wrong name");
 
-			var inputPlayerName = Console.ReadLine();
-
-			while (!GameCheckedHelper.IsValidUserName(inputPlayerName))
-			{
-				ShowMessage(errorMessage);
-				ShowMessage(message.ToString());
-				inputPlayerName = Console.ReadLine();
-			}
-
-			return inputPlayerName;
+            return answerUser;
 		}
 		public int[] GetCorrectModeGame(string playerName)
 		{
@@ -75,12 +59,12 @@ namespace FunnyGame.View
 
 			var modeGame = Console.ReadLine();
 
-			while (!GameCheckedHelper.IsValidInputModeGame(modeGame))
-			{
-				ShowMessage(errorMessage);
-				ShowMenu();
+			//while (!GameCheckedHelper.IsValidInputModeGame(modeGame))
+			//{
+			//	ShowMessage(errorMessage);
+			//	ShowMenu();
 				modeGame = Console.ReadLine();
-			}
+			//}
 
 			return modeGame == "o" ? new int[] {1, 2, 3} : new int[] {4, 5, 6, 7, 8, 9};
 
@@ -111,53 +95,54 @@ namespace FunnyGame.View
 
 		public int MultiplyResultPlayer(Game gameUser)
 		{
-			int numericValueFirstPlayer = gameUser.FirstPlayer.ConceivedNumbersPlayer.Last();
-			int numericValueSecondPlayer = gameUser.SecondPlayer.ConceivedNumbersPlayer.Last();
+			//int numericValueFirstPlayer = gameUser.FirstPlayer.ConceivedNumbersPlayer.Last();
+			//int numericValueSecondPlayer = gameUser.SecondPlayer.ConceivedNumbersPlayer.Last();
 
-			Console.WriteLine("The number player {0} is: {1}",gameUser.FirstPlayer.PlayerName,numericValueFirstPlayer);
-			Console.WriteLine("The number player {0} is: {1}", gameUser.SecondPlayer.PlayerName,numericValueSecondPlayer);
+			//Console.WriteLine("The number player {0} is: {1}",gameUser.FirstPlayer.PlayerName,numericValueFirstPlayer);
+			//Console.WriteLine("The number player {0} is: {1}", gameUser.SecondPlayer.PlayerName,numericValueSecondPlayer);
 
-			int multiplyRes = GameCheckedHelper.MultiplyNumber(numericValueFirstPlayer, numericValueSecondPlayer);
+			//int multiplyRes = GameCheckedHelper.MultiplyNumber(numericValueFirstPlayer, numericValueSecondPlayer);
 
-			Console.WriteLine("Result multiply: {0}", multiplyRes);
+			//Console.WriteLine("Result multiply: {0}", multiplyRes);
 
-			return multiplyRes;
+			//return multiplyRes;
+			return 0;
 
 		}
 
 		public void ShowMessageForWinRound(int firstDigits, Game gameUser)
 		{
-			Console.WriteLine("The first Digits is {0}", firstDigits);
-			StringBuilder messageGame = new StringBuilder("The player is ");
-			if (firstDigits != 0)
-			{
-                
-				if (gameUser.FirstPlayer.GetSetNumber().Contains(firstDigits))
-				{
-					messageGame.AppendFormat("{0} Win", gameUser.FirstPlayer.PlayerName);
-					GameLog.WriteMessage(messageGame.ToString());
-					Console.WriteLine("The player {0} is WIN", gameUser.FirstPlayer.PlayerName);
-				}
-				else
-				{
-					messageGame.AppendFormat("{0} Win", gameUser.SecondPlayer.PlayerName);
-					GameLog.WriteMessage(messageGame.ToString());
-					Console.WriteLine("The player {0} is Win", gameUser.SecondPlayer.PlayerName);
-				}
-			}
-			else
-			{
-				string message = "In this round draw";
-				ShowMessage(message);
-			}
-			messageGame.Clear();
+			//Console.WriteLine("The first Digits is {0}", firstDigits);
+			//StringBuilder messageGame = new StringBuilder("The player is ");
+			//if (firstDigits != 0)
+			//{
+			//	if (gameUser.FirstPlayer.SetNumber.Contains(firstDigits))
+			//	{
+			//		messageGame.AppendFormat("{0} Win", gameUser.FirstPlayer.PlayerName);
+			//		GameLog.WriteMessage(messageGame.ToString());
+			//		Console.WriteLine("The player {0} is WIN", gameUser.FirstPlayer.PlayerName);
+			//	}
+			//	else
+			//	{
+			//		messageGame.AppendFormat("{0} Win", gameUser.SecondPlayer.PlayerName);
+			//		GameLog.WriteMessage(messageGame.ToString());
+			//		Console.WriteLine("The player {0} is Win", gameUser.SecondPlayer.PlayerName);
+			//	}
+			//}
+			//else
+			//{
+			//	string message = "In this round draw";
+			//	ShowMessage(message);
+			//}
+			//messageGame.Clear();
 		}
 
 
 		public int[] CheckCorrectModeGame(Player player)
 		{
-			int[] arrayOnes = new[] {1, 2, 3};
-			return player.GetSetNumber().SequenceEqual(arrayOnes) ? new[] {4, 5, 6, 7, 8, 9} : arrayOnes;
+			return new[] { 1, 2, 3 };
+			//int[] arrayOnes = new[] {1, 2, 3};
+			//return player.SetNumber.SequenceEqual(arrayOnes) ? new[] {4, 5, 6, 7, 8, 9} : arrayOnes;
 		}
 	}
 }

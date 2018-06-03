@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Text;
 using System.Windows;
-using FunnyGame.Helper;
 using FunnyGame.Model;
 
 namespace FunnyGameWPF.Controls
@@ -30,33 +29,33 @@ namespace FunnyGameWPF.Controls
 
 		private void Run_Click(object sender, RoutedEventArgs e)
 		{
-			int playerNumber = Convert.ToInt32(InputNumber.Text);
-			int oppontNumber = rnd.Next(0, 100);
-			ComputerNumb.Content = oppontNumber;
+			//int playerNumber = Convert.ToInt32(InputNumber.Text);
+			//int oppontNumber = rnd.Next(0, 100);
+			//ComputerNumb.Content = oppontNumber;
 
-			int multiplyResult = GameCheckedHelper.MultiplyNumber(playerNumber, oppontNumber);
+			//int multiplyResult = GameCheckedHelper.MultiplyNumber(playerNumber, oppontNumber);
 
-			if (multiplyResult == 0)
-			{
-				MessageBox.Show("Draw", "Result Game", MessageBoxButton.OK, MessageBoxImage.Information);
-			}
-			else if (Gamer.FirstPlayer.GetSetNumber().Contains(multiplyResult))
-			{
-				StringBuilder str = new StringBuilder("The Gamer ");
-				str.Append(Gamer.FirstPlayer.PlayerName);
-				str.Append(" is Win");
-				MessageBox.Show(str.ToString(), "Result Game", MessageBoxButton.OK, MessageBoxImage.Information);
-			}
-			else
-			{
-				StringBuilder str = new StringBuilder("The Gamer ");
-				str.Append(Gamer.SecondPlayer.PlayerName);
-				str.Append(" is Win");
-				MessageBox.Show(str.ToString(), "Result Game", MessageBoxButton.OK, MessageBoxImage.Information);
-			}
+			//if (multiplyResult == 0)
+			//{
+			//	MessageBox.Show("Draw", "Result Game", MessageBoxButton.OK, MessageBoxImage.Information);
+			//}
+			//else if (Gamer.FirstPlayer.SetNumber.Contains(multiplyResult))
+			//{
+			//	StringBuilder str = new StringBuilder("The Gamer ");
+			//	str.Append(Gamer.FirstPlayer.PlayerName);
+			//	str.Append(" is Win");
+			//	MessageBox.Show(str.ToString(), "Result Game", MessageBoxButton.OK, MessageBoxImage.Information);
+			//}
+			//else
+			//{
+			//	StringBuilder str = new StringBuilder("The Gamer ");
+			//	str.Append(Gamer.SecondPlayer.PlayerName);
+			//	str.Append(" is Win");
+			//	MessageBox.Show(str.ToString(), "Result Game", MessageBoxButton.OK, MessageBoxImage.Information);
+			//}
 
-			InputNumber.Text = string.Empty;
-			ComputerNumb.Content = string.Empty;
+			//InputNumber.Text = string.Empty;
+			//ComputerNumb.Content = string.Empty;
 		}
 	}
 }
