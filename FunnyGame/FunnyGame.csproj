@@ -56,13 +56,17 @@
     <Compile Include="src\Controller\GameSimulationCompVsHuman.cs" />
     <Compile Include="src\Controller\GameSimulationPersonVsPerson.cs" />
     <Compile Include="src\Helper\GameCheckedHelper.cs" />
+    <Compile Include="src\Interface\ICalculatorHelper.cs" />
     <Compile Include="src\Interface\IGameBeginViewer.cs" />
     <Compile Include="src\Interface\IGameMode.cs" />
     <Compile Include="src\Interface\ISequenceGame.cs" />
+    <Compile Include="src\Interface\IUserValidation.cs" />
+    <Compile Include="src\Model\CalculatorHelper.cs" />
     <Compile Include="src\Model\Game.cs" />
     <Compile Include="src\Controller\GameSimulationBasic.cs" />
     <Compile Include="src\Model\Player.cs" />
     <Compile Include="src\Model\Statistics.cs" />
+    <Compile Include="src\Model\UserValedate.cs" />
     <Compile Include="src\View\GameViewer.cs" />
     <Compile Include="src\View\ViewerSequenceGame.cs" />
     <Compile Include="src\View\GameStartViewer.cs" />
@@ -72,11 +76,12 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Core\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

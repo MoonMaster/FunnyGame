@@ -55,7 +55,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tests\GameCheckedHelperTests.cs" />
+    <Compile Include="tests\CalculatorHelperTests.cs" />
+    <Compile Include="tests\UserValidateTests.cs" />
     <Compile Include="tests\GamerTests.cs" />
     <Compile Include="tests\ViewrSequenceGameTest.cs" />
   </ItemGroup>
