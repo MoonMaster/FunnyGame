@@ -22,23 +22,21 @@ namespace FunnyGame
 				{
 					case '1':
 						GameLog.WriteMessage("Check first mode game");
-						gameEmulation.Execute(new GameCompVsHuman());
+						gameEmulation.Execute(new HumanVsCompGame());
 						break;
 					case '2':
 						GameLog.WriteMessage("Check second mode game");
-						gameEmulation.Execute(new GamePersonVsPerson());
+						//gameEmulation.Execute(new GamePersonVsPerson());
 						break;
 					default:
 						Console.WriteLine("Error"); 
 						break;
 
 				}
-				if (choiceGamer.Key == ConsoleKey.Escape)
-				{
-					GameLog.WriteMessage("Logged out of the game");
-					Environment.Exit(0);
-					
-				}
+
+				if (choiceGamer.Key != ConsoleKey.Escape) continue;
+				GameLog.WriteMessage("Logged out of the game");
+				Environment.Exit(0);
 			}
 		}
 	}

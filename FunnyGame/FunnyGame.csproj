@@ -50,12 +50,8 @@
     <Compile Include="FunnyGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Controller\GameEmulation.cs" />
-    <Compile Include="src\Controller\GameCompVsHuman.cs" />
+    <Compile Include="src\Controller\HumanVsCompGame.cs" />
     <Compile Include="src\Controller\GameLog.cs" />
-    <Compile Include="src\Controller\GamePersonVsPerson.cs" />
-    <Compile Include="src\Controller\GameSimulationCompVsHuman.cs" />
-    <Compile Include="src\Controller\GameSimulationPersonVsPerson.cs" />
-    <Compile Include="src\Helper\GameCheckedHelper.cs" />
     <Compile Include="src\Interface\ICalculatorHelper.cs" />
     <Compile Include="src\Interface\IGameBeginViewer.cs" />
     <Compile Include="src\Interface\IGameMode.cs" />
@@ -63,7 +59,7 @@
     <Compile Include="src\Interface\IUserValidation.cs" />
     <Compile Include="src\Model\CalculatorHelper.cs" />
     <Compile Include="src\Model\Game.cs" />
-    <Compile Include="src\Controller\GameSimulationBasic.cs" />
+    <Compile Include="src\Model\GenerateUser.cs" />
     <Compile Include="src\Model\Player.cs" />
     <Compile Include="src\Model\Statistics.cs" />
     <Compile Include="src\Model\UserValedate.cs" />

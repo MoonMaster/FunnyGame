@@ -18,7 +18,7 @@ namespace FunnyGame.Model
 
 		public bool IsValidateChoiceModeGame(string choiceModeGame)
 		{
-			var regExp = new Regex(choiceModeGame);
+			var regExp = new Regex(patternModeGame);
 
 			return regExp.Match(choiceModeGame).Success;
 		}

@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Text;
 using FunnyGame.Controller;
-using FunnyGame.Helper;
 using FunnyGame.Interface;
 using FunnyGame.Model;
 
@@ -16,14 +15,22 @@ namespace FunnyGame.View
 			"[e] - second part {4,5,6,7,8,9}"
 		};
 
+		private readonly UserValedate _validateUser;
+
+		private CalculatorHelper _calcHelper;
+
 		public GameViewerSequenceGame()
 		{
 			Options = _optionsGameMode;
+
+			_validateUser = new UserValedate();
+
+			_calcHelper = new CalculatorHelper();
 		}
 
 		public bool IsExit()
 		{
-			string message = "For Exit input X";
+			string message = "For Exit input X. If you don't want exit please Enter";
 			ShowMessage(message);
 			string checkPlayer = Console.ReadLine();
 			if (checkPlayer == null)
@@ -35,18 +42,11 @@ namespace FunnyGame.View
 			return true;
 		}
 
-		public string GetCorrectPlayerName(int countPlayers = 1)
+		public string GetCorrectPlayerName()
 		{
 			StringBuilder message = new StringBuilder().Clear();
 
-			if (countPlayers == 1)
-			{
-				message.Append("The First Player. What is your Name?");
-			}
-			else if (countPlayers > 1)
-			{
-				message.Append("The Second Player. What is your Name?");
-			}
+			message.Append(" What is your Name?");
 			
 			string errorMessage = "Invalid player Name";
 
@@ -54,7 +54,7 @@ namespace FunnyGame.View
 
 			var inputPlayerName = Console.ReadLine();
 
-			while (!GameCheckedHelper.IsValidUserName(inputPlayerName))
+			while (!_validateUser.IsValidateUserName(inputPlayerName))
 			{
 				ShowMessage(errorMessage);
 				ShowMessage(message.ToString());
@@ -63,19 +63,19 @@ namespace FunnyGame.View
 
 			return inputPlayerName;
 		}
-		public int[] GetCorrectModeGame(Player player)
+		public int[] GetCorrectModeGame(string playerName)
 		{
 			StringBuilder message = new StringBuilder();
 			string errorMessage = "Wrong choice mode game";
 
-			message.AppendFormat("The Player {0}. What is your choice?", player.PlayerName);
+			message.AppendFormat("The Player {0}. What is your choice?", playerName);
 			
 			ShowMessage(message.ToString());
 			ShowMenu();
 
 			var modeGame = Console.ReadLine();
 
-			while (!GameCheckedHelper.IsValidInputModeGame(modeGame))
+			while (!_validateUser.IsValidateChoiceModeGame(modeGame))
 			{
 				ShowMessage(errorMessage);
 				ShowMenu();
@@ -117,9 +117,7 @@ namespace FunnyGame.View
 			Console.WriteLine("The number player {0} is: {1}",gameUser.FirstPlayer.PlayerName,numericValueFirstPlayer);
 			Console.WriteLine("The number player {0} is: {1}", gameUser.SecondPlayer.PlayerName,numericValueSecondPlayer);
 
-			int multiplyRes = GameCheckedHelper.MultiplyNumber(numericValueFirstPlayer, numericValueSecondPlayer);
-
-			Console.WriteLine("Result multiply: {0}", multiplyRes);
+			int multiplyRes = _calcHelper.GetFirstDigitalNumberMultiply(numericValueFirstPlayer,numericValueSecondPlayer);
 
 			return multiplyRes;
 
@@ -127,7 +125,7 @@ namespace FunnyGame.View
 
 		public void ShowMessageForWinRound(int firstDigits, Game gameUser)
 		{
-			Console.WriteLine("The first Digits is {0}", firstDigits);
+			Console.WriteLine("The first Digits after multiply is {0}", firstDigits);
 			StringBuilder messageGame = new StringBuilder("The player is ");
 			if (firstDigits != 0)
 			{
